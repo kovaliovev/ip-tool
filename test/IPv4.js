@@ -39,4 +39,18 @@ const validationTests = [
   ['127.0.0.0.10', false, 'Validation test #10'],
 ];
 
+const toDecimalConvertTests = [
+  ['123.123.123.123', 2071690107, 'Convert to decimal test #1'],
+  ['0.0.0.0', 0, 'Convert to decimal test #2'],
+  ['255.255.255.255', 4294967295, 'Convert to decimal test #3'],
+  ['1.2.3.4', 16909060, 'Convert to decimal test #4'],
+  ['0.0.0.1', 1, 'Convert to decimal test #5'],
+  ['1.0.0.0', 16777216, 'Convert to decimal test #6'],
+  ['100.200.100.200', 1690854600, 'Convert to decimal test #7'],
+  ['10.255.255.256', 'ERROR:Invalid IP-address!', 'Convert to decimal test #8'],
+  ['10.0.0.one', 'ERROR:Invalid IP-address!', 'Convert to decimal test #9'],
+  ['127.0.0.0.10', 'ERROR:Invalid IP-address!', 'Convert to decimal test #10'],
+];
+
 runTests(ip, ip.isValide, validationTests);
+runTests(ip, ip.ipToDecimal, toDecimalConvertTests);
