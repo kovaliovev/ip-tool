@@ -41,6 +41,19 @@ const validationTests = [
   ['127.0.0.0.10', false, 'Validation test #10'],
 ];
 
+const toArrayConvertTests = [
+  ['123.123.123.123', [123, 123, 123, 123], 'Convert to array test #1'],
+  ['0.0.0.0', [0, 0, 0, 0], 'Convert to array test #2'],
+  ['255.255.255.255', [255, 255, 255, 255], 'Convert to array test #3'],
+  ['1.2.3.4', [1, 2, 3, 4], 'Convert to array test #4'],
+  ['0.0.0.1', [0, 0, 0, 1], 'Convert to array test #5'],
+  ['111.222.-2.0', 'ERROR:Invalid IP-address!', 'Convert to array test #6'],
+  ['256.256.256.256', 'ERROR:Invalid IP-address!', 'Convert to array test #7'],
+  ['10.255.255', 'ERROR:Invalid IP-address!', 'Convert to array test #8'],
+  ['ten.zero.one.one', 'ERROR:Invalid IP-address!', 'Convert to array test #9'],
+  ['127.0.0.0.10', 'ERROR:Invalid IP-address!', 'Convert to array test #10'],
+];
+
 const toDecimalConvertTests = [
   ['123.123.123.123', 2071690107, 'Convert to decimal test #1'],
   ['0.0.0.0', 0, 'Convert to decimal test #2'],
@@ -55,4 +68,5 @@ const toDecimalConvertTests = [
 ];
 
 runTests(ip, ip.isValide, validationTests);
+runTests(ip, ip.toArray, toArrayConvertTests);
 runTests(ip, ip.toDecimal, toDecimalConvertTests);
