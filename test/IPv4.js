@@ -3,17 +3,20 @@
 const assert = require('node:assert/strict');
 const { IPv4 } = require('../lib/IPv4.js');
 
-const runTests = (fn, tests) => {
+const runTests = (context, fn, tests) => {
   console.log('Testing started!');
   let failed = 0;
   for (const [input, excepted, name] of tests) {
     console.log(`${name} testing...`);
-    const output = fn(input);
     try {
+      const output = fn.call(context, input);
       assert.deepStrictEqual(output, excepted, name);
     } catch (err) {
-      if (err) console.error(err);
-      failed++;
+      const exceptedError = excepted.split(':')[1];
+      if (err.message !== exceptedError) {
+        console.error(err);
+        failed++;
+      }
     }
   }
   console.log('Testing ended!');
@@ -36,4 +39,4 @@ const validationTests = [
   ['127.0.0.0.10', false, 'Validation test #10'],
 ];
 
-runTests(ip.isValide, validationTests);
+runTests(ip, ip.isValide, validationTests);
