@@ -12,8 +12,10 @@ const runTests = (context, fn, tests) => {
       const output = fn.call(context, input);
       assert.deepStrictEqual(output, excepted, name);
     } catch (err) {
-      const exceptedError = excepted.split(':')[1];
-      if (err.message !== exceptedError) {
+      const isExcepted =
+        typeof excepted === 'string' && excepted.startsWith('ERROR:');
+      const exceptedError = excepted.slice(6);
+      if (!isExcepted || err.message !== exceptedError) {
         console.error(err);
         failed++;
       }
