@@ -53,4 +53,4 @@ const toDecimalConvertTests = [
 ];
 
 runTests(ip, ip.isValide, validationTests);
-runTests(ip, ip.ipToDecimal, toDecimalConvertTests);
+runTests(ip, ip.toDecimal, toDecimalConvertTests);
