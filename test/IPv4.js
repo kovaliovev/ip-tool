@@ -3,7 +3,7 @@
 const assert = require('node:assert/strict');
 const { IPv4 } = require('../lib/IPv4.js');
 
-const runTests = (context, fn, tests) => {
+const runTests = (fn, tests, context = null) => {
   console.log('Testing started!');
   let failed = 0;
   for (const [input, excepted, name] of tests) {
@@ -67,6 +67,6 @@ const toDecimalConvertTests = [
   ['127.0.0.0.10', 'ERROR:Invalid IP-address!', 'Convert to decimal test #10'],
 ];
 
-runTests(ip, ip.isValide, validationTests);
-runTests(ip, ip.toArray, toArrayConvertTests);
-runTests(ip, ip.toDecimal, toDecimalConvertTests);
+runTests(ip.isValide, validationTests, ip);
+runTests(ip.toArray, toArrayConvertTests, ip);
+runTests(ip.toDecimal, toDecimalConvertTests, ip);
