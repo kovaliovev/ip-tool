@@ -67,6 +67,48 @@ const toDecimalConvertTests = [
   ['127.0.0.0.10', 'ERROR:Invalid IP-address!', 'Convert to decimal test #10'],
 ];
 
+const toBinaryConvertTests = [
+  [
+    '123.123.123.123',
+    '01111011.01111011.01111011.01111011',
+    'Convert to binary test #1',
+  ],
+  [
+    '0.0.0.0',
+    '00000000.00000000.00000000.00000000',
+    'Convert to binary test #2',
+  ],
+  [
+    '255.255.255.255',
+    '11111111.11111111.11111111.11111111',
+    'Convert to binary test #3',
+  ],
+  [
+    '10.0.0.1',
+    '00001010.00000000.00000000.00000001',
+    'Convert to binary test #4',
+  ],
+  [
+    '196.128.64.0',
+    '11000100.10000000.01000000.00000000',
+    'Convert to binary test #5',
+  ],
+  [
+    '128.0.0.0',
+    '10000000.00000000.00000000.00000000',
+    'Convert to binary test #6',
+  ],
+  [
+    '100.200.100.200',
+    '01100100.11001000.01100100.11001000',
+    'Convert to binary test #7',
+  ],
+  ['10.255.255.256', 'ERROR:Invalid IP-address!', 'Convert to binary test #8'],
+  ['10.0.0.one', 'ERROR:Invalid IP-address!', 'Convert to binary test #9'],
+  ['127.0.0.0.10', 'ERROR:Invalid IP-address!', 'Convert to binary test #10'],
+];
+
 runTests(ip.isValide, validationTests, ip);
 runTests(ip.toArray, toArrayConvertTests, ip);
 runTests(ip.toDecimal, toDecimalConvertTests, ip);
+runTests(ip.toBinary, toBinaryConvertTests, ip);
