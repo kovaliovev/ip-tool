@@ -85,7 +85,21 @@ const toBinaryConvertTests = [
   ['127.0.0.0.10', 'ERROR:Invalid IP-address!', 'Convert to binary test #10'],
 ];
 
+const getClassTests = [
+  ['123.123.123.123', 'A', 'Get ip-class test #1'],
+  ['0.0.0.0', 'A', 'Get ip-class test #2'],
+  ['255.255.255.255', 'E', 'Get ip-class test #3'],
+  ['128.45.78.200', 'B', 'Get ip-class test #4'],
+  ['196.66.2.225', 'C', 'Get ip-class test #5'],
+  ['224.44.222.244', 'D', 'Get ip-class test #6'],
+  ['196.64.0', 'ERROR:Invalid IP-address!', 'Get ip-class test #7'],
+  ['10.255.255.256', 'ERROR:Invalid IP-address!', 'Get ip-class test #8'],
+  ['10.0.0.one', 'ERROR:Invalid IP-address!', 'Get ip-class test #9'],
+  ['127.0.0.0.10', 'ERROR:Invalid IP-address!', 'Get ip-class test #10'],
+];
+
 runTests(ip.isValide, validationTests, ip);
 runTests(ip.toArray, toArrayConvertTests, ip);
 runTests(ip.toDecimal, toDecimalConvertTests, ip);
 runTests(ip.toBinary, toBinaryConvertTests, ip);
+runTests(ip.getClass, getClassTests, ip);
