@@ -98,8 +98,38 @@ const getClassTests = [
   ['127.0.0.0.10', 'ERROR:Invalid IP-address!', 'Get ip-class test #10'],
 ];
 
+const maskToBinaryConvertTests = [
+  [
+    '0.0.0.0',
+    '00000000.00000000.00000000.00000000',
+    'Convert mask to binary test #1',
+  ],
+  [
+    '255.255.255.255',
+    '11111111.11111111.11111111.11111111',
+    'Convert mask to binary test #2',
+  ],
+  [
+    '255.255.240.0',
+    '11111111.11111111.11110000.00000000',
+    'Convert mask to binary test #3',
+  ],
+  [
+    '248.0.0.0',
+    '11111000.00000000.00000000.00000000',
+    'Convert mask to binary test #4',
+  ],
+  ['255.255.64.0', 'ERROR:Invalid IP-mask!', 'Convert mask to binary test #5'],
+  ['20.23.20.13', 'ERROR:Invalid IP-mask!', 'Convert mask to binary test #6'],
+  ['255.255.0', 'ERROR:Invalid IP-mask!', 'Convert mask to binary test #7'],
+  ['256.0.0.0', 'ERROR:Invalid IP-mask!', 'Convert mask to binary test #8'],
+  ['224.0.0.one', 'ERROR:Invalid IP-mask!', 'Convert mask to binary test #9'],
+  ['128.0.0.0.0', 'ERROR:Invalid IP-mask!', 'Convert mask to binary test #10'],
+];
+
 runTests(ip.isValide, validationTests, ip);
 runTests(ip.toArray, toArrayConvertTests, ip);
 runTests(ip.toDecimal, toDecimalConvertTests, ip);
 runTests(ip.toBinary, toBinaryConvertTests, ip);
 runTests(ip.getClass, getClassTests, ip);
+runTests(ip.maskToBinary, maskToBinaryConvertTests, ip);
