@@ -119,12 +119,28 @@ const maskToBinaryConvertTests = [
     '11111000.00000000.00000000.00000000',
     'Convert mask to binary test #4',
   ],
-  ['255.255.64.0', 'ERROR:Invalid IP-mask!', 'Convert mask to binary test #5'],
-  ['20.23.20.13', 'ERROR:Invalid IP-mask!', 'Convert mask to binary test #6'],
-  ['255.255.0', 'ERROR:Invalid IP-mask!', 'Convert mask to binary test #7'],
-  ['256.0.0.0', 'ERROR:Invalid IP-mask!', 'Convert mask to binary test #8'],
-  ['224.0.0.one', 'ERROR:Invalid IP-mask!', 'Convert mask to binary test #9'],
-  ['128.0.0.0.0', 'ERROR:Invalid IP-mask!', 'Convert mask to binary test #10'],
+  [
+    '255.255.64.0',
+    'ERROR:Invalid subnet mask!',
+    'Convert mask to binary test #5',
+  ],
+  [
+    '20.23.20.13',
+    'ERROR:Invalid subnet mask!',
+    'Convert mask to binary test #6',
+  ],
+  ['255.255.0', 'ERROR:Invalid subnet mask!', 'Convert mask to binary test #7'],
+  ['256.0.0.0', 'ERROR:Invalid subnet mask!', 'Convert mask to binary test #8'],
+  [
+    '224.0.0.one',
+    'ERROR:Invalid subnet mask!',
+    'Convert mask to binary test #9',
+  ],
+  [
+    '128.0.0.0.0',
+    'ERROR:Invalid subnet mask!',
+    'Convert mask to binary test #10',
+  ],
 ];
 
 runTests(ip.isValide, validationTests, ip);
