@@ -143,9 +143,23 @@ const maskToBinaryConvertTests = [
   ],
 ];
 
+const maskValidationTests = [
+  ['0.0.0.0', true, 'Subnet mask validation test #1'],
+  ['255.255.255.255', true, 'Subnet mask validation test #2'],
+  ['255.192.0.0', true, 'Subnet mask validation test #3'],
+  ['255.255.224.0', true, 'Subnet mask validation test #4'],
+  ['255.200.0.0', false, 'Subnet mask validation test #5'],
+  ['224.44.222.244', false, 'Subnet mask validation test #6'],
+  ['196.64.0', false, 'Subnet mask validation test #7'],
+  ['255.255.255.256', false, 'Subnet mask validation test #8'],
+  ['10.0.0.one', false, 'Subnet mask validation test #9'],
+  ['127.0.0.0.10', false, 'Subnet mask validation test #10'],
+];
+
 runTests(ip.isValide, validationTests, ip);
 runTests(ip.toArray, toArrayConvertTests, ip);
 runTests(ip.toDecimal, toDecimalConvertTests, ip);
 runTests(ip.toBinary, toBinaryConvertTests, ip);
 runTests(ip.getClass, getClassTests, ip);
 runTests(ip.maskToBinary, maskToBinaryConvertTests, ip);
+runTests(ip.isMaskValide, maskValidationTests, ip);
