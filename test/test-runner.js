@@ -4,6 +4,7 @@ const assert = require('node:assert/strict');
 
 const runTests = (fn, tests, context = null) => {
   console.log('Testing started!');
+  const errorPrefix = 'ERROR:';
   let failed = 0;
   for (const [input, excepted, name] of tests) {
     console.log(`${name} testing...`);
@@ -12,8 +13,8 @@ const runTests = (fn, tests, context = null) => {
       assert.deepStrictEqual(output, excepted, name);
     } catch (err) {
       const isExcepted =
-        typeof excepted === 'string' && excepted.startsWith('ERROR:');
-      const exceptedError = excepted.slice(6);
+        typeof excepted === 'string' && excepted.startsWith(errorPrefix);
+      const exceptedError = excepted.slice(errorPrefix.length);
       if (!isExcepted || err.message !== exceptedError) {
         console.error(err);
         failed++;
