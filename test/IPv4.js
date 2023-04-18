@@ -156,6 +156,39 @@ const maskValidationTests = [
   ['127.0.0.0.10', false, 'Subnet mask validation test #10'],
 ];
 
+const getIpFromArrayTests = [
+  [[0, 0, 0, 0], '0.0.0.0', 'IP from array getting test #1'],
+  [[255, 255, 255, 255], '255.255.255.255', 'IP from array getting test #2'],
+  [[10, 33, 4, 200], '10.33.4.200', 'IP from array getting test #3'],
+  [[1, '200', 33, '45'], '1.200.33.45', 'IP from array getting test #4'],
+  [['1', '200', '33', '45'], '1.200.33.45', 'IP from array getting test #5'],
+  [
+    [true, true, true, true],
+    'ERROR:Invalid array entered!',
+    'IP from array getting test #6',
+  ],
+  [
+    [196, 64, 12],
+    'ERROR:Invalid array entered!',
+    'IP from array getting test #7',
+  ],
+  [
+    [255, 255, 255, 256],
+    'ERROR:Invalid array entered!',
+    'IP from array getting test #8',
+  ],
+  [
+    [10, 10, 10, 'one'],
+    'ERROR:Invalid array entered!',
+    'IP from array getting test #9',
+  ],
+  [
+    [127, 0, 0, 0, 1],
+    'ERROR:Invalid array entered!',
+    'IP from array getting test #10',
+  ],
+];
+
 runTests(ip.isValide, validationTests, ip);
 runTests(ip.toArray, toArrayConvertTests, ip);
 runTests(ip.toDecimal, toDecimalConvertTests, ip);
@@ -163,3 +196,4 @@ runTests(ip.toBinary, toBinaryConvertTests, ip);
 runTests(ip.getClass, getClassTests, ip);
 runTests(ip.maskToBinary, maskToBinaryConvertTests, ip);
 runTests(ip.isMaskValide, maskValidationTests, ip);
+runTests(ip.fromArray, getIpFromArrayTests, ip);
