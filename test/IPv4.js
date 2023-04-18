@@ -168,8 +168,8 @@ const getIpFromArrayTests = [
     'IP from array getting test #6',
   ],
   [
-    [196, 64, 12],
-    'ERROR:Invalid array entered!',
+    '[196, 64, 12]',
+    'ERROR:Invalid input type!',
     'IP from array getting test #7',
   ],
   [
