@@ -189,6 +189,19 @@ const getIpFromArrayTests = [
   ],
 ];
 
+const getIpFromDecimalTests = [
+  [2071690107, '123.123.123.123', 'Convert to decimal test #1'],
+  [0, '0.0.0.0', 'Convert to decimal test #2'],
+  [4294967295, '255.255.255.255', 'Convert to decimal test #3'],
+  [16909060, '1.2.3.4', 'Convert to decimal test #4'],
+  [1, '0.0.0.1', 'Convert to decimal test #5'],
+  [16777216, '1.0.0.0', 'Convert to decimal test #6'],
+  [-1, 'ERROR:Invalid number entered!', 'Convert to decimal test #7'],
+  [12345678900, 'ERROR:Invalid number entered!', 'Convert to decimal test #8'],
+  [[1690854600], 'ERROR:Invalid input type!', 'Convert to decimal test #9'],
+  [true, 'ERROR:Invalid input type!', 'Convert to decimal test #10'],
+];
+
 runTests(ip.isValide, validationTests, ip);
 runTests(ip.toArray, toArrayConvertTests, ip);
 runTests(ip.toDecimal, toDecimalConvertTests, ip);
@@ -197,3 +210,4 @@ runTests(ip.getClass, getClassTests, ip);
 runTests(ip.maskToBinary, maskToBinaryConvertTests, ip);
 runTests(ip.isMaskValide, maskValidationTests, ip);
 runTests(ip.fromArray, getIpFromArrayTests, ip);
+runTests(ip.fromDecimal, getIpFromDecimalTests, ip);
