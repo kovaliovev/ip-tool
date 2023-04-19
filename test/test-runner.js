@@ -14,8 +14,7 @@ const runTests = (fn, tests, context = null) => {
     } catch (err) {
       const isExcepted =
         typeof excepted === 'string' && excepted.startsWith(errorPrefix);
-      const exceptedError = excepted.slice(errorPrefix.length);
-      if (!isExcepted || err.message !== exceptedError) {
+      if (!isExcepted || err.message !== excepted.slice(errorPrefix.length)) {
         console.error(err);
         failed++;
       }
