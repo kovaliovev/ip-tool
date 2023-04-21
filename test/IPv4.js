@@ -239,6 +239,59 @@ const binaryValidationTests = [
   ['0.0.0.0', false, 'Binary ip validation test #10'],
 ];
 
+const getIpFromBinaryTests = [
+  [
+    '01111011.01111011.01111011.01111011',
+    '123.123.123.123',
+    'IP from binary getting test #1',
+  ],
+  [
+    '00000000.00000000.00000000.00000000',
+    '0.0.0.0',
+    'IP from binary getting test #2',
+  ],
+  [
+    '11111111.11111111.11111111.11111111',
+    '255.255.255.255',
+    'IP from binary getting test #3',
+  ],
+  [
+    '00001010.00000000.00000000.00000001',
+    '10.0.0.1',
+    'IP from binary getting test #4',
+  ],
+  [
+    '11000100.10000000.01000000.00000000',
+    '196.128.64.0',
+    'IP from binary getting test #5',
+  ],
+  [
+    '10000000.00000000.00000000.00000000',
+    '128.0.0.0',
+    'IP from binary getting test #6',
+  ],
+  [
+    '01100100.11001000.01100100.01000102',
+    'ERROR:Invalid binary ip entered!',
+    'IP from binary getting test #7',
+  ],
+  [
+    '01100100.11001000.01100100.01000101.01101011',
+    'ERROR:Invalid binary ip entered!',
+    'IP from binary getting test #8',
+  ],
+  [
+    '10101110.01001000.10110110.one111111',
+    'ERROR:Invalid binary ip entered!',
+    'IP from binary getting test #9',
+  ],
+  [
+    '0.0.0.0',
+    'ERROR:Invalid binary ip entered!',
+    'IP from binary getting test #10',
+  ],
+];
+
 runTests(ip.isValide, validationTests, ip);
 runTests(ip.toArray, toArrayConvertTests, ip);
 runTests(ip.toDecimal, toDecimalConvertTests, ip);
@@ -249,3 +302,4 @@ runTests(ip.isMaskValide, maskValidationTests, ip);
 runTests(ip.fromArray, getIpFromArrayTests, ip);
 runTests(ip.fromDecimal, getIpFromDecimalTests, ip);
 runTests(ip.isBinaryValide, binaryValidationTests, ip);
+runTests(ip.fromBinary, getIpFromBinaryTests, ip);
