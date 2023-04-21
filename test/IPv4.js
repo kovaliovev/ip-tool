@@ -190,16 +190,24 @@ const getIpFromArrayTests = [
 ];
 
 const getIpFromDecimalTests = [
-  [2071690107, '123.123.123.123', 'Convert to decimal test #1'],
-  [0, '0.0.0.0', 'Convert to decimal test #2'],
-  [4294967295, '255.255.255.255', 'Convert to decimal test #3'],
-  [16909060, '1.2.3.4', 'Convert to decimal test #4'],
-  [1, '0.0.0.1', 'Convert to decimal test #5'],
-  [16777216, '1.0.0.0', 'Convert to decimal test #6'],
-  [-1, 'ERROR:Invalid number entered!', 'Convert to decimal test #7'],
-  [12345678900, 'ERROR:Invalid number entered!', 'Convert to decimal test #8'],
-  [[1690854600], 'ERROR:Invalid input type!', 'Convert to decimal test #9'],
-  [true, 'ERROR:Invalid input type!', 'Convert to decimal test #10'],
+  [2071690107, '123.123.123.123', 'IP from decimal getting test #1'],
+  [0, '0.0.0.0', 'IP from decimal getting test #2'],
+  [4294967295, '255.255.255.255', 'IP from decimal getting test #3'],
+  [16909060, '1.2.3.4', 'IP from decimal getting test #4'],
+  [1, '0.0.0.1', 'IP from decimal getting test #5'],
+  [16777216, '1.0.0.0', 'IP from decimal getting test #6'],
+  [-1, 'ERROR:Invalid number entered!', 'IP from decimal getting test #7'],
+  [
+    12345678900,
+    'ERROR:Invalid number entered!',
+    'IP from decimal getting test #8',
+  ],
+  [
+    [1690854600],
+    'ERROR:Invalid input type!',
+    'IP from decimal getting test #9',
+  ],
+  [true, 'ERROR:Invalid input type!', 'IP from decimal getting test #10'],
 ];
 
 const binaryValidationTests = [
