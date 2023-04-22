@@ -34,9 +34,7 @@ const runTests = (tests) => {
         }
       }
     }
-    console.log(
-      `Successfully passed: ${testCount - failed}/${testCount}`
-    );
+    console.log(`Successfully passed: ${testCount - failed}/${testCount}`);
     console.log('-----------------------------');
   }
 };
