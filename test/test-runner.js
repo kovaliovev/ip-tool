@@ -7,6 +7,7 @@ const runTests = (tests) => {
   let testsName, context, fn;
   for (const test of tests) {
     let failed = 0;
+    let testCount = 0;
     for (const data of test) {
       if (data.isInfo) {
         testsName = data.testsName;
@@ -14,10 +15,12 @@ const runTests = (tests) => {
         fn = data.fn;
         console.log(`${testsName} testing started!`);
       } else {
-        const [input, excepted, name] = data;
+        const [input, excepted] = data;
+        testCount++;
+        const testName = `${testsName} test #${testCount}`;
         try {
           const output = fn.call(context, input);
-          assert.deepStrictEqual(output, excepted, name);
+          assert.deepStrictEqual(output, excepted, testName);
         } catch (err) {
           const isExcepted =
             typeof excepted === 'string' && excepted.startsWith(errorPrefix);
@@ -32,7 +35,7 @@ const runTests = (tests) => {
       }
     }
     console.log(
-      `Successfully passed: ${test.length - failed - 1}/${test.length - 1}`
+      `Successfully passed: ${testCount - failed}/${testCount}`
     );
     console.log('-----------------------------');
   }
