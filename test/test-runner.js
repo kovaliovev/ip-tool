@@ -2,27 +2,40 @@
 
 const assert = require('node:assert/strict');
 
-const runTests = (fn, tests, context = null) => {
-  console.log('Testing started!');
+const runTests = (tests) => {
   const errorPrefix = 'ERROR:';
-  let failed = 0;
-  for (const [input, excepted, name] of tests) {
-    console.log(`${name} testing...`);
-    try {
-      const output = fn.call(context, input);
-      assert.deepStrictEqual(output, excepted, name);
-    } catch (err) {
-      const isExcepted =
-        typeof excepted === 'string' && excepted.startsWith(errorPrefix);
-      if (!isExcepted || err.message !== excepted.slice(errorPrefix.length)) {
-        console.error(err);
-        failed++;
+  let testsName, context, fn;
+  for (const test of tests) {
+    let failed = 0;
+    for (const data of test) {
+      if (data.isInfo) {
+        testsName = data.testsName;
+        context = data.context;
+        fn = data.fn;
+        console.log(`${testsName} testing started!`);
+      } else {
+        const [input, excepted, name] = data;
+        try {
+          const output = fn.call(context, input);
+          assert.deepStrictEqual(output, excepted, name);
+        } catch (err) {
+          const isExcepted =
+            typeof excepted === 'string' && excepted.startsWith(errorPrefix);
+          if (
+            !isExcepted ||
+            err.message !== excepted.slice(errorPrefix.length)
+          ) {
+            console.error(err);
+            failed++;
+          }
+        }
       }
     }
+    console.log(
+      `Successfully passed: ${test.length - failed - 1}/${test.length - 1}`
+    );
+    console.log('-----------------------------');
   }
-  console.log('Testing ended!');
-  console.log(`Successfully passed: ${tests.length - failed}/${tests.length}`);
-  console.log('-----------------------------');
 };
 
 module.exports = { runTests };
