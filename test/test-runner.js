@@ -28,6 +28,7 @@ const runTests = (tests) => {
             !isExcepted ||
             err.message !== excepted.slice(errorPrefix.length)
           ) {
+            console.log(`${testName} failed!`);
             console.error(err);
             failed++;
           }
