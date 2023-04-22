@@ -6,6 +6,12 @@ const { runTests } = require('./test-runner.js');
 const ip = new IPv4();
 
 const validationTests = [
+  {
+    isInfo: true,
+    testsName: 'Ip-address validation',
+    context: ip,
+    fn: ip.isValide,
+  },
   ['123.123.123.123', true, 'Validation test #1'],
   ['0.0.0.0', true, 'Validation test #2'],
   ['255.255.255.255', true, 'Validation test #3'],
@@ -19,6 +25,12 @@ const validationTests = [
 ];
 
 const toArrayConvertTests = [
+  {
+    isInfo: true,
+    testsName: 'Converting ip-address to array',
+    context: ip,
+    fn: ip.toArray,
+  },
   ['123.123.123.123', [123, 123, 123, 123], 'Convert to array test #1'],
   ['0.0.0.0', [0, 0, 0, 0], 'Convert to array test #2'],
   ['255.255.255.255', [255, 255, 255, 255], 'Convert to array test #3'],
@@ -32,6 +44,12 @@ const toArrayConvertTests = [
 ];
 
 const toDecimalConvertTests = [
+  {
+    isInfo: true,
+    testsName: 'Converting ip-address to decimal number',
+    context: ip,
+    fn: ip.toDecimal,
+  },
   ['123.123.123.123', 2071690107, 'Convert to decimal test #1'],
   ['0.0.0.0', 0, 'Convert to decimal test #2'],
   ['255.255.255.255', 4294967295, 'Convert to decimal test #3'],
@@ -45,6 +63,12 @@ const toDecimalConvertTests = [
 ];
 
 const toBinaryConvertTests = [
+  {
+    isInfo: true,
+    testsName: 'Converting ip-address to binary',
+    context: ip,
+    fn: ip.toBinary,
+  },
   [
     '123.123.123.123',
     '01111011.01111011.01111011.01111011',
@@ -86,6 +110,12 @@ const toBinaryConvertTests = [
 ];
 
 const getClassTests = [
+  {
+    isInfo: true,
+    testsName: 'Getting ip subnet class',
+    context: ip,
+    fn: ip.getClass,
+  },
   ['123.123.123.123', 'A', 'Get ip-class test #1'],
   ['0.0.0.0', 'A', 'Get ip-class test #2'],
   ['255.255.255.255', 'E', 'Get ip-class test #3'],
@@ -99,6 +129,12 @@ const getClassTests = [
 ];
 
 const maskToBinaryConvertTests = [
+  {
+    isInfo: true,
+    testsName: 'Converting ip subnet mask to binary',
+    context: ip,
+    fn: ip.maskToBinary,
+  },
   [
     '0.0.0.0',
     '00000000.00000000.00000000.00000000',
@@ -144,6 +180,12 @@ const maskToBinaryConvertTests = [
 ];
 
 const maskValidationTests = [
+  {
+    isInfo: true,
+    testsName: 'Ip subnet mask validation',
+    context: ip,
+    fn: ip.isMaskValide,
+  },
   ['0.0.0.0', true, 'Subnet mask validation test #1'],
   ['255.255.255.255', true, 'Subnet mask validation test #2'],
   ['255.192.0.0', true, 'Subnet mask validation test #3'],
@@ -157,6 +199,12 @@ const maskValidationTests = [
 ];
 
 const getIpFromArrayTests = [
+  {
+    isInfo: true,
+    testsName: 'Getting ip-address from array',
+    context: ip,
+    fn: ip.fromArray,
+  },
   [[0, 0, 0, 0], '0.0.0.0', 'IP from array getting test #1'],
   [[255, 255, 255, 255], '255.255.255.255', 'IP from array getting test #2'],
   [[10, 33, 4, 200], '10.33.4.200', 'IP from array getting test #3'],
@@ -190,6 +238,12 @@ const getIpFromArrayTests = [
 ];
 
 const getIpFromDecimalTests = [
+  {
+    isInfo: true,
+    testsName: 'Getting ip-address from decimal number',
+    context: ip,
+    fn: ip.fromDecimal,
+  },
   [2071690107, '123.123.123.123', 'IP from decimal getting test #1'],
   [0, '0.0.0.0', 'IP from decimal getting test #2'],
   [4294967295, '255.255.255.255', 'IP from decimal getting test #3'],
@@ -211,6 +265,12 @@ const getIpFromDecimalTests = [
 ];
 
 const binaryValidationTests = [
+  {
+    isInfo: true,
+    testsName: 'Binary ip-address validation',
+    context: ip,
+    fn: ip.isBinaryValide,
+  },
   ['00000000.00000000.00000000.00000000', true, 'Binary ip validation test #1'],
   ['11111111.11111111.11111111.11111111', true, 'Binary ip validation test #2'],
   ['11101010.00010100.01011110.01111001', true, 'Binary ip validation test #3'],
@@ -240,6 +300,12 @@ const binaryValidationTests = [
 ];
 
 const getIpFromBinaryTests = [
+  {
+    isInfo: true,
+    testsName: 'Getting ip-address from binary',
+    context: ip,
+    fn: ip.fromBinary,
+  },
   [
     '01111011.01111011.01111011.01111011',
     '123.123.123.123',
@@ -292,14 +358,18 @@ const getIpFromBinaryTests = [
   ],
 ];
 
-runTests(ip.isValide, validationTests, ip);
-runTests(ip.toArray, toArrayConvertTests, ip);
-runTests(ip.toDecimal, toDecimalConvertTests, ip);
-runTests(ip.toBinary, toBinaryConvertTests, ip);
-runTests(ip.getClass, getClassTests, ip);
-runTests(ip.maskToBinary, maskToBinaryConvertTests, ip);
-runTests(ip.isMaskValide, maskValidationTests, ip);
-runTests(ip.fromArray, getIpFromArrayTests, ip);
-runTests(ip.fromDecimal, getIpFromDecimalTests, ip);
-runTests(ip.isBinaryValide, binaryValidationTests, ip);
-runTests(ip.fromBinary, getIpFromBinaryTests, ip);
+const allTests = [
+  validationTests,
+  toArrayConvertTests,
+  toDecimalConvertTests,
+  toBinaryConvertTests,
+  getClassTests,
+  maskToBinaryConvertTests,
+  maskValidationTests,
+  getIpFromArrayTests,
+  getIpFromDecimalTests,
+  binaryValidationTests,
+  getIpFromBinaryTests,
+];
+
+runTests(allTests);
