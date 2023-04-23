@@ -11,7 +11,7 @@ const runTests = (tests) => {
     for (const data of test) {
       if (data.isInfo) {
         testsName = data.testsName;
-        context = data.context;
+        context = data.context || null;
         fn = data.fn;
         console.log(`${testsName} testing started!`);
       } else {
