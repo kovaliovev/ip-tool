@@ -18,8 +18,11 @@ const runTests = (tests) => {
         const [input, excepted] = data;
         testCount++;
         const testName = `${testsName} test #${testCount}`;
+        const fnHasOnlyArg = fn.length === 1;
         try {
-          const output = fn.call(context, input);
+          const output = fnHasOnlyArg ?
+            fn.call(context, input) :
+            fn.apply(context, input);
           assert.deepStrictEqual(output, excepted, testName);
         } catch (err) {
           const isExcepted =
