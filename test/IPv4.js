@@ -214,6 +214,25 @@ const getIpFromBinaryTests = [
   ['0.0.0.0', 'ERROR:Invalid binary ip entered!'],
 ];
 
+const getIpNetworkAddressTests = [
+  {
+    isInfo: true,
+    testsName: 'Getting ip-network address',
+    context: ip,
+    fn: ip.getNetworkAddress,
+  },
+  [['0.0.0.0', '0.0.0.0'], '0.0.0.0'],
+  [['255.255.255.255', '255.255.255.255'], '255.255.255.255'],
+  [['255.255.255.255', '0.0.0.0'], '0.0.0.0'],
+  [['34.100.255.45', '255.255.252.0'], '34.100.252.0'],
+  [['255.0.255.255', '255.255.255.240'], '255.0.255.240'],
+  [['255.256.255.255', '255.255.128.0'], 'ERROR:Invalid IP-address!'],
+  [['255.200.100.10', '255.255.255.250'], 'ERROR:Invalid subnet mask!'],
+  [[255, '255.255.128.0'], 'ERROR:Invalid IP-address!'],
+  [['255.200.100.10', true], 'ERROR:Invalid subnet mask!'],
+  [['23.2.20.23', '240.0.0.0'], '16.0.0.0'],
+];
+
 const allTests = [
   validationTests,
   toArrayConvertTests,
@@ -226,6 +245,7 @@ const allTests = [
   getIpFromDecimalTests,
   binaryValidationTests,
   getIpFromBinaryTests,
+  getIpNetworkAddressTests,
 ];
 
 runTests(allTests);
