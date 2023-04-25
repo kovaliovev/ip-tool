@@ -267,8 +267,8 @@ const getMaskFromPrefixTests = [
   [8, '255.0.0.0'],
   [-1, 'ERROR:Invalid prefix entered!'],
   [33, 'ERROR:Invalid prefix entered!'],
-  ['16', 'ERROR:Invalid input type!'],
-  [[16], 'ERROR:Invalid input type!'],
+  ['16', 'ERROR:Invalid prefix entered!'],
+  [[16], 'ERROR:Invalid prefix entered!'],
 ];
 
 const allTests = [
