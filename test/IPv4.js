@@ -252,6 +252,25 @@ const maskToPrefixConvertTests = [
   [255255255255, 'ERROR:Invalid subnet mask!'],
 ];
 
+const getMaskFromPrefixTests = [
+  {
+    isInfo: true,
+    testsName: 'Getting ip-subnet mask from prefix',
+    context: ip,
+    fn: ip.maskFromPrefix,
+  },
+  [0, '0.0.0.0'],
+  [32, '255.255.255.255'],
+  [14, '255.252.0.0'],
+  [27, '255.255.255.224'],
+  [1, '128.0.0.0'],
+  [8, '255.0.0.0'],
+  [-1, 'ERROR:Invalid prefix entered!'],
+  [33, 'ERROR:Invalid prefix entered!'],
+  ['16', 'ERROR:Invalid input type!'],
+  [[16], 'ERROR:Invalid input type!'],
+];
+
 const allTests = [
   validationTests,
   toArrayConvertTests,
@@ -266,6 +285,7 @@ const allTests = [
   getIpFromBinaryTests,
   getIpNetworkAddressTests,
   maskToPrefixConvertTests,
+  getMaskFromPrefixTests,
 ];
 
 runTests(allTests);
