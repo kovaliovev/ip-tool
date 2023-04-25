@@ -233,6 +233,25 @@ const getIpNetworkAddressTests = [
   [['23.2.20.23', '240.0.0.0'], '16.0.0.0'],
 ];
 
+const maskToPrefixConvertTests = [
+  {
+    isInfo: true,
+    testsName: 'Converting ip-subnet mask to prefix',
+    context: ip,
+    fn: ip.maskToPrefix,
+  },
+  ['0.0.0.0', '/0'],
+  ['255.255.255.255', '/32'],
+  ['255.252.0.0', '/14'],
+  ['255.255.255.224', '/27'],
+  ['128.0.0.0', '/1'],
+  ['0.0.0.128', 'ERROR:Invalid subnet mask!'],
+  ['255.255.255.25', 'ERROR:Invalid subnet mask!'],
+  ['0.0.0.0.0', 'ERROR:Invalid subnet mask!'],
+  ['255.255.255', 'ERROR:Invalid subnet mask!'],
+  [255255255255, 'ERROR:Invalid subnet mask!'],
+];
+
 const allTests = [
   validationTests,
   toArrayConvertTests,
@@ -246,6 +265,7 @@ const allTests = [
   binaryValidationTests,
   getIpFromBinaryTests,
   getIpNetworkAddressTests,
+  maskToPrefixConvertTests,
 ];
 
 runTests(allTests);
