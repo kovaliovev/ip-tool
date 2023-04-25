@@ -233,6 +233,25 @@ const getIpNetworkAddressTests = [
   [['23.2.20.23', '240.0.0.0'], '16.0.0.0/4'],
 ];
 
+const ipNetworkValidation = [
+  {
+    isInfo: true,
+    testsName: 'Ip-network address validation',
+    context: ip,
+    fn: ip.isNetworkValide,
+  },
+  ['0.0.0.0/0', true],
+  ['255.255.255.255/32', true],
+  ['0.0.0.0/32', true],
+  ['123.122.120.0/22', true],
+  ['123.122.120.0/20', false],
+  ['10.0.0.1/31', false],
+  ['10.0.0.0/31', true],
+  ['123.123.10.1', false],
+  [['0.0.0.0', '/0'], false],
+  [true, false],
+];
+
 const prefixValidationTests = [
   {
     isInfo: true,
@@ -306,6 +325,7 @@ const allTests = [
   maskToPrefixConvertTests,
   getMaskFromPrefixTests,
   prefixValidationTests,
+  ipNetworkValidation,
 ];
 
 runTests(allTests);
