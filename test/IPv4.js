@@ -7,8 +7,7 @@ const ip = new IPv4();
 
 const validationTests = [
   {
-    isInfo: true,
-    testsName: 'Ip-address validation',
+    testName: 'Ip-address validation',
     context: ip,
     fn: ip.isValide,
   },
@@ -26,8 +25,7 @@ const validationTests = [
 
 const toArrayConvertTests = [
   {
-    isInfo: true,
-    testsName: 'Converting ip-address to array',
+    testName: 'Converting ip-address to array',
     context: ip,
     fn: ip.toArray,
   },
@@ -45,8 +43,7 @@ const toArrayConvertTests = [
 
 const toDecimalConvertTests = [
   {
-    isInfo: true,
-    testsName: 'Converting ip-address to decimal number',
+    testName: 'Converting ip-address to decimal number',
     context: ip,
     fn: ip.toDecimal,
   },
@@ -64,8 +61,7 @@ const toDecimalConvertTests = [
 
 const toBinaryConvertTests = [
   {
-    isInfo: true,
-    testsName: 'Converting ip-address to binary',
+    testName: 'Converting ip-address to binary',
     context: ip,
     fn: ip.toBinary,
   },
@@ -83,8 +79,7 @@ const toBinaryConvertTests = [
 
 const getClassTests = [
   {
-    isInfo: true,
-    testsName: 'Getting ip subnet class',
+    testName: 'Getting ip subnet class',
     context: ip,
     fn: ip.getClass,
   },
@@ -102,8 +97,7 @@ const getClassTests = [
 
 const maskToBinaryConvertTests = [
   {
-    isInfo: true,
-    testsName: 'Converting ip subnet mask to binary',
+    testName: 'Converting ip subnet mask to binary',
     context: ip,
     fn: ip.maskToBinary,
   },
@@ -121,8 +115,7 @@ const maskToBinaryConvertTests = [
 
 const maskValidationTests = [
   {
-    isInfo: true,
-    testsName: 'Ip subnet mask validation',
+    testName: 'Ip subnet mask validation',
     context: ip,
     fn: ip.isMaskValide,
   },
@@ -140,8 +133,7 @@ const maskValidationTests = [
 
 const getIpFromArrayTests = [
   {
-    isInfo: true,
-    testsName: 'Getting ip-address from array',
+    testName: 'Getting ip-address from array',
     context: ip,
     fn: ip.fromArray,
   },
@@ -159,8 +151,7 @@ const getIpFromArrayTests = [
 
 const getIpFromDecimalTests = [
   {
-    isInfo: true,
-    testsName: 'Getting ip-address from decimal number',
+    testName: 'Getting ip-address from decimal number',
     context: ip,
     fn: ip.fromDecimal,
   },
@@ -178,8 +169,7 @@ const getIpFromDecimalTests = [
 
 const binaryValidationTests = [
   {
-    isInfo: true,
-    testsName: 'Binary ip-address validation',
+    testName: 'Binary ip-address validation',
     context: ip,
     fn: ip.isBinaryValide,
   },
@@ -197,8 +187,7 @@ const binaryValidationTests = [
 
 const getIpFromBinaryTests = [
   {
-    isInfo: true,
-    testsName: 'Getting ip-address from binary',
+    testName: 'Getting ip-address from binary',
     context: ip,
     fn: ip.fromBinary,
   },
@@ -216,8 +205,7 @@ const getIpFromBinaryTests = [
 
 const getIpNetworkAddressTests = [
   {
-    isInfo: true,
-    testsName: 'Getting ip-network address',
+    testName: 'Getting ip-network address',
     context: ip,
     fn: ip.getNetworkAddress,
   },
@@ -235,8 +223,7 @@ const getIpNetworkAddressTests = [
 
 const ipNetworkValidation = [
   {
-    isInfo: true,
-    testsName: 'Ip-network address validation',
+    testName: 'Ip-network address validation',
     context: ip,
     fn: ip.isNetworkValide,
   },
@@ -254,8 +241,7 @@ const ipNetworkValidation = [
 
 const prefixValidationTests = [
   {
-    isInfo: true,
-    testsName: 'Ip-address prefix validation',
+    testName: 'Ip-address prefix validation',
     context: ip,
     fn: ip.isPrefixValide,
   },
@@ -273,8 +259,7 @@ const prefixValidationTests = [
 
 const maskToPrefixConvertTests = [
   {
-    isInfo: true,
-    testsName: 'Converting ip-subnet mask to prefix',
+    testName: 'Converting ip-subnet mask to prefix',
     context: ip,
     fn: ip.maskToPrefix,
   },
@@ -292,8 +277,7 @@ const maskToPrefixConvertTests = [
 
 const getMaskFromPrefixTests = [
   {
-    isInfo: true,
-    testsName: 'Getting ip-subnet mask from prefix',
+    testName: 'Getting ip-subnet mask from prefix',
     context: ip,
     fn: ip.maskFromPrefix,
   },
@@ -311,8 +295,7 @@ const getMaskFromPrefixTests = [
 
 const splitNetworkInHalfTests = [
   {
-    isInfo: true,
-    testsName: 'Splitting ip-network in half',
+    testName: 'Splitting ip-network in half',
     context: ip,
     fn: ip.splitNetworkInHalf,
   },
