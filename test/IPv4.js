@@ -309,6 +309,25 @@ const getMaskFromPrefixTests = [
   [[16], 'ERROR:Invalid prefix entered!'],
 ];
 
+const splitNetworkInHalfTests = [
+  {
+    isInfo: true,
+    testsName: 'Splitting ip-network in half',
+    context: ip,
+    fn: ip.splitNetworkInHalf,
+  },
+  ['222.245.160.0/22', ['222.245.160.0/23', '222.245.162.0/23']],
+  ['222.245.162.0/23', ['222.245.162.0/24', '222.245.163.0/24']],
+  ['222.245.163.0/24', ['222.245.163.0/25', '222.245.163.128/25']],
+  ['222.245.163.128/25', ['222.245.163.128/26', '222.245.163.192/26']],
+  ['222.245.163.192/26', ['222.245.163.192/27', '222.245.163.224/27']],
+  ['222.245.163.224/27', ['222.245.163.224/28', '222.245.163.240/28']],
+  ['222.245.163.254/32', 'ERROR:Can not split network with /32 subnet mask!'],
+  ['128.64.0.0/8', 'ERROR:Invalide ip-network!'],
+  [['222.245.163.254', '/32'], 'ERROR:Invalide ip-network!'],
+  [true, 'ERROR:Invalide ip-network!'],
+];
+
 const allTests = [
   validationTests,
   toArrayConvertTests,
@@ -326,6 +345,7 @@ const allTests = [
   getMaskFromPrefixTests,
   prefixValidationTests,
   ipNetworkValidation,
+  splitNetworkInHalfTests,
 ];
 
 runTests(allTests);
