@@ -2,39 +2,33 @@
 
 const assert = require('node:assert/strict');
 
-const runTests = (tests) => {
+const runTests = (testsList) => {
   const errorPrefix = 'ERROR:';
-  let testsName, context, fn;
-  for (const test of tests) {
+  for (const test of testsList) {
     let failed = 0;
-    let testCount = 0;
-    for (const data of test) {
-      if (data.isInfo) {
-        testsName = data.testsName;
-        context = data.context || null;
-        fn = data.fn;
-        console.log(`${testsName} testing started!`);
-      } else {
-        const [input, excepted] = data;
-        testCount++;
-        const testName = `${testsName} test #${testCount}`;
-        const fnHasOnlyArg = fn.length === 1;
-        try {
-          const output = fnHasOnlyArg ?
-            fn.call(context, input) :
-            fn.apply(context, input);
-          assert.deepStrictEqual(output, excepted, testName);
-        } catch (err) {
-          const isExcepted =
-            typeof excepted === 'string' && excepted.startsWith(errorPrefix);
-          if (
-            !isExcepted ||
-            err.message !== excepted.slice(errorPrefix.length)
-          ) {
-            console.log(`${testName} failed!`);
-            console.error(err);
-            failed++;
-          }
+    const testInfo = test[0];
+    const { testName, context, fn } = testInfo;
+    const fnHasOneArg = fn.length === 1;
+    const testCount = test.length - 1;
+    console.log(`${testName} testing started!`);
+
+    for (let i = 1; i < testCount; i++) {
+      const testCase = test[i];
+      const [input, excepted] = testCase;
+      const testCaseName = `${testName} test #${i}`;
+
+      try {
+        const output = fnHasOneArg ?
+          fn.call(context, input) :
+          fn.apply(context, input);
+        assert.deepStrictEqual(output, excepted, testCaseName);
+      } catch (err) {
+        const isExcepted =
+          typeof excepted === 'string' && excepted.startsWith(errorPrefix);
+        if (!isExcepted || err.message !== excepted.slice(errorPrefix.length)) {
+          console.log(`${testCaseName} failed!`);
+          console.error(err);
+          failed++;
         }
       }
     }
