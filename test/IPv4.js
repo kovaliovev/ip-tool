@@ -293,6 +293,24 @@ const getMaskFromPrefixTests = [
   [[16], 'ERROR:Invalid prefix entered!'],
 ];
 
+const getHostsCountTests = [
+  {
+    testName: 'Getting count of hosts by prefix',
+    context: ip,
+    fn: ip.getHostsCount,
+  },
+  [32, 1],
+  [0, 4294967296],
+  [31, 2],
+  [16, 	65536],
+  [4, 268435456],
+  [25, 128],
+  ['25', 'ERROR:Invalid prefix entered!'],
+  ['128.64.0.0/8', 'ERROR:Invalid prefix entered!'],
+  [[16], 'ERROR:Invalid prefix entered!'],
+  [false, 'ERROR:Invalid prefix entered!'],
+];
+
 const splitNetworkInHalfTests = [
   {
     testName: 'Splitting ip-network in half',
@@ -329,6 +347,7 @@ const allTests = [
   prefixValidationTests,
   ipNetworkValidation,
   splitNetworkInHalfTests,
+  getHostsCountTests,
 ];
 
 runTests(allTests);
