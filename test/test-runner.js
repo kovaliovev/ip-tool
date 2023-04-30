@@ -12,7 +12,7 @@ const runTests = (testsList) => {
     const testCount = test.length - 1;
     console.log(`${testName} testing started!`);
 
-    for (let i = 1; i < testCount; i++) {
+    for (let i = 1; i <= testCount; i++) {
       const testCase = test[i];
       const [input, excepted] = testCase;
       const testCaseName = `${testName} test #${i}`;
