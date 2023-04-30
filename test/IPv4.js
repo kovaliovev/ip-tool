@@ -302,7 +302,7 @@ const getHostsCountTests = [
   [32, 1],
   [0, 4294967296],
   [31, 2],
-  [16, 	65536],
+  [16, 65536],
   [4, 268435456],
   [25, 128],
   ['25', 'ERROR:Invalid prefix entered!'],
