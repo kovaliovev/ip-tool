@@ -329,6 +329,48 @@ const splitNetworkInHalfTests = [
   [true, 'ERROR:Invalide ip-network!'],
 ];
 
+const getNetworkUsableHostRangeTests = [
+  {
+    testName: 'Getting usable host IP range by network',
+    context: ip,
+    fn: ip.getNetworkUsableHostRange,
+  },
+  [
+    '37.73.144.52/30',
+    { firstHostAddress: '37.73.144.53', lastHostAddress: '37.73.144.54' },
+  ],
+  [
+    '37.73.144.0/25',
+    { firstHostAddress: '37.73.144.1', lastHostAddress: '37.73.144.126' },
+  ],
+  [
+    '37.73.144.0/20',
+    { firstHostAddress: '37.73.144.1', lastHostAddress: '37.73.159.254' },
+  ],
+  [
+    '37.72.0.0/15',
+    { firstHostAddress: '37.72.0.1', lastHostAddress: '37.73.255.254' },
+  ],
+  [
+    '37.64.0.0/10',
+    { firstHostAddress: '37.64.0.1', lastHostAddress: '37.127.255.254' },
+  ],
+  [
+    '32.0.0.0/5',
+    { firstHostAddress: '32.0.0.1', lastHostAddress: '39.255.255.254' },
+  ],
+  [
+    '0.0.0.0/1',
+    { firstHostAddress: '0.0.0.1', lastHostAddress: '127.255.255.254' },
+  ],
+  [
+    '0.0.0.0/0',
+    { firstHostAddress: '0.0.0.1', lastHostAddress: '255.255.255.254' },
+  ],
+  ['37.73.144.51/30', 'ERROR:Invalide ip-network!'],
+  ['37.73.144.51/32', 'ERROR:Network has no usable hosts!'],
+];
+
 const allTests = [
   validationTests,
   toArrayConvertTests,
@@ -348,6 +390,7 @@ const allTests = [
   ipNetworkValidation,
   splitNetworkInHalfTests,
   getHostsCountTests,
+  getNetworkUsableHostRangeTests,
 ];
 
 runTests(allTests);
