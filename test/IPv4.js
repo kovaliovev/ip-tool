@@ -371,6 +371,24 @@ const getNetworkUsableHostRangeTests = [
   ['37.73.144.51/32', 'ERROR:Network has no usable hosts!'],
 ];
 
+const parseNetworkTests = [
+  {
+    testName: 'Parsing network to address and prefix',
+    context: ip,
+    fn: ip.parseNetwork,
+  },
+  ['37.73.144.0/23', ['37.73.144.0', 23]],
+  ['255.89.111.64/26', ['255.89.111.64', 26]],
+  ['242.10.0.0/16', ['242.10.0.0', 16]],
+  ['3.3.3.4/31', ['3.3.3.4', 31]],
+  ['0.0.0.0/0', ['0.0.0.0', 0]],
+  ['255.255.255.255/32', ['255.255.255.255', 32]],
+  [['37.73.144.0', '/23'], 'ERROR:Invalide ip-network!'],
+  ['37.73.144.45/23', 'ERROR:Invalide ip-network!'],
+  ['255.255.255.256/32', 'ERROR:Invalide ip-network!'],
+  ['0.0.0.1/0', 'ERROR:Invalide ip-network!'],
+];
+
 const allTests = [
   validationTests,
   toArrayConvertTests,
@@ -391,6 +409,7 @@ const allTests = [
   splitNetworkInHalfTests,
   getHostsCountTests,
   getNetworkUsableHostRangeTests,
+  parseNetworkTests,
 ];
 
 runTests(allTests);
