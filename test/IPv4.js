@@ -389,6 +389,24 @@ const parseNetworkTests = [
   ['0.0.0.1/0', 'ERROR:Invalide ip-network!'],
 ];
 
+const getWildcardMaskFromPrefixTests = [
+  {
+    testName: 'Getting ip-wildcard mask from prefix',
+    context: ip,
+    fn: ip.wildcardMaskFromPrefix,
+  },
+  [0, '255.255.255.255'],
+  [32, '0.0.0.0'],
+  [14, '0.3.255.255'],
+  [27, '0.0.0.31'],
+  [1, '127.255.255.255'],
+  [8, '0.255.255.255'],
+  [-1, 'ERROR:Invalid prefix entered!'],
+  [33, 'ERROR:Invalid prefix entered!'],
+  ['16', 'ERROR:Invalid prefix entered!'],
+  [[16], 'ERROR:Invalid prefix entered!'],
+];
+
 const allTests = [
   validationTests,
   toArrayConvertTests,
@@ -410,6 +428,7 @@ const allTests = [
   getHostsCountTests,
   getNetworkUsableHostRangeTests,
   parseNetworkTests,
+  getWildcardMaskFromPrefixTests,
 ];
 
 runTests(allTests);
