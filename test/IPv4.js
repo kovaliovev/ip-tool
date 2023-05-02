@@ -407,6 +407,24 @@ const getWildcardMaskFromPrefixTests = [
   [[16], 'ERROR:Invalid prefix entered!'],
 ];
 
+const getNetworkBroadcastAddressTests = [
+  {
+    testName: 'Getting ip-network broadcast address',
+    context: ip,
+    fn: ip.getNetworkBroadcastAddress,
+  },
+  ['37.73.144.0/23', '37.73.145.255'],
+  ['222.33.32.0/19', '222.33.63.255'],
+  ['220.0.0.0/6', '223.255.255.255'],
+  ['222.33.44.8/30', '222.33.44.11'],
+  ['255.255.255.255/32', '255.255.255.255'],
+  ['0.0.0.0/0', '255.255.255.255'],
+  ['30.124.95.120/31', '30.124.95.121'],
+  ['30.124.95.119/31', 'ERROR:Invalide ip-network!'],
+  ['e.r.r.o.r.s.t.r.i.n.g', 'ERROR:Invalide ip-network!'],
+  [['30.124.95.120', '/31'], 'ERROR:Invalide ip-network!'],
+];
+
 const allTests = [
   validationTests,
   toArrayConvertTests,
@@ -429,6 +447,7 @@ const allTests = [
   getNetworkUsableHostRangeTests,
   parseNetworkTests,
   getWildcardMaskFromPrefixTests,
+  getNetworkBroadcastAddressTests,
 ];
 
 runTests(allTests);
