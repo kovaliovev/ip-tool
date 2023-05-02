@@ -311,6 +311,33 @@ const getIpNetworkAddressTests = [
   [['23.2.20.23', '240.0.0.0'], '16.0.0.0/4'],
 ];
 
+const ipInNetworkIncludingTests = [
+  {
+    testName: 'Ip-address in ip-network including',
+    context: ip,
+    fn: ip.isNetworkIncludes,
+  },
+  [['0.0.0.0/0', '111.222.91.19', '0.0.0.0'], true],
+  [['255.255.255.255/32', '255.255.255.255', '255.255.255.255'], true],
+  [['0.0.0.0/0', '34.224.199.123', '0.0.0.0'], true],
+  [['34.100.252.0/22', '34.100.255.12', '255.255.252.0'], true],
+  [['34.100.252.0/22', '34.100.255.12', '255.255.255.0'], false],
+  [['34.100.252.0/22', '34.110.0.0', '255.255.252.0'], false],
+  [['0.0.0.0/31', '0.0.0.2', '255.255.255.254'], false],
+  [
+    ['34.100.252.3/22', '34.100.255.12', '255.255.252.0'],
+    'ERROR:Invalide ip-network!',
+  ],
+  [
+    ['34.100.252.0/22', '34.100.255.12.0', '255.255.252.0'],
+    'ERROR:Invalid IP-address!',
+  ],
+  [
+    ['34.100.252.0/22', '34.100.255.12', '255.255.253.0'],
+    'ERROR:Invalid subnet mask!',
+  ],
+];
+
 const getNetworkBroadcastAddressTests = [
   {
     testName: 'Getting ip-network broadcast address',
@@ -443,6 +470,7 @@ const allTests = [
   getMaskFromPrefixTests,
   getWildcardMaskFromPrefixTests,
   getIpNetworkAddressTests,
+  ipInNetworkIncludingTests,
   getNetworkBroadcastAddressTests,
   getClassTests,
   getHostsCountTests,
