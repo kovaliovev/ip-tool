@@ -1,0 +1,28 @@
+{
+  "name": "ip-tool",
+  "version": "1.0.0",
+  "description": "Node.js library for processing IP addresses",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kovaliovev/ip-tool.git"
+  },
+  "keywords": [
+    "ip",
+    "ip-address",
+    "ipv4",
+    "ipv6"
+  ],
+  "author": "Evgheniy Kovaliov <kovaliov.evgeniy11@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kovaliovev/ip-tool/issues"
+  },
+  "homepage": "https://github.com/kovaliovev/ip-tool#readme"
+}
