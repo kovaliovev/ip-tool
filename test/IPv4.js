@@ -5,9 +5,9 @@ const { runTests } = require('./test-runner.js');
 
 const ip = new IPv4();
 
-const validationTests = [
+const ipValidationTest = [
   {
-    testName: 'Ip-address validation',
+    testName: 'Ip address validation',
     context: ip,
     fn: ip.isValide,
   },
@@ -23,9 +23,9 @@ const validationTests = [
   ['127.0.0.0.10', false],
 ];
 
-const binaryValidationTests = [
+const binaryValidationTest = [
   {
-    testName: 'Binary ip-address validation',
+    testName: 'Binary ip address validation',
     context: ip,
     fn: ip.isBinaryValide,
   },
@@ -41,7 +41,7 @@ const binaryValidationTests = [
   ['0.0.0.0', false],
 ];
 
-const maskValidationTests = [
+const maskValidationTest = [
   {
     testName: 'Ip subnet mask validation',
     context: ip,
@@ -59,9 +59,9 @@ const maskValidationTests = [
   ['127.0.0.0.10', false],
 ];
 
-const prefixValidationTests = [
+const prefixValidationTest = [
   {
-    testName: 'Ip-address prefix validation',
+    testName: 'Ip prefix validation',
     context: ip,
     fn: ip.isPrefixValide,
   },
@@ -77,9 +77,9 @@ const prefixValidationTests = [
   [true, false],
 ];
 
-const ipNetworkValidation = [
+const networkValidationTest = [
   {
-    testName: 'Ip-network address validation',
+    testName: 'Ip network address validation',
     context: ip,
     fn: ip.isNetworkValide,
   },
@@ -95,7 +95,7 @@ const ipNetworkValidation = [
   [true, false],
 ];
 
-const parseNetworkTests = [
+const parseNetworkTest = [
   {
     testName: 'Parsing network to address and prefix',
     context: ip,
@@ -113,9 +113,9 @@ const parseNetworkTests = [
   ['0.0.0.1/0', 'ERROR:Invalide ip network!'],
 ];
 
-const toArrayConvertTests = [
+const convertIpToArraytTest = [
   {
-    testName: 'Converting ip-address to array',
+    testName: 'Converting ip address to array',
     context: ip,
     fn: ip.toArray,
   },
@@ -131,9 +131,9 @@ const toArrayConvertTests = [
   ['127.0.0.0.10', 'ERROR:Invalide ip address!'],
 ];
 
-const getIpFromArrayTests = [
+const getIpFromArrayTest = [
   {
-    testName: 'Getting ip-address from array',
+    testName: 'Getting ip address from array',
     context: ip,
     fn: ip.fromArray,
   },
@@ -149,9 +149,9 @@ const getIpFromArrayTests = [
   [[127, 0, 0, 0, 1], 'ERROR:Invalid array entered!'],
 ];
 
-const toDecimalConvertTests = [
+const convertIpToDecimalTest = [
   {
-    testName: 'Converting ip-address to decimal number',
+    testName: 'Converting ip address to decimal number',
     context: ip,
     fn: ip.toDecimal,
   },
@@ -167,9 +167,9 @@ const toDecimalConvertTests = [
   ['127.0.0.0.10', 'ERROR:Invalide ip address!'],
 ];
 
-const getIpFromDecimalTests = [
+const getIpFromDecimalTest = [
   {
-    testName: 'Getting ip-address from decimal number',
+    testName: 'Getting ip address from decimal number',
     context: ip,
     fn: ip.fromDecimal,
   },
@@ -185,9 +185,9 @@ const getIpFromDecimalTests = [
   [true, 'ERROR:Invalid input type!'],
 ];
 
-const toBinaryConvertTests = [
+const convertIpToBinaryTest = [
   {
-    testName: 'Converting ip-address to binary',
+    testName: 'Converting ip address to binary',
     context: ip,
     fn: ip.toBinary,
   },
@@ -203,9 +203,9 @@ const toBinaryConvertTests = [
   ['127.0.0.0.10', 'ERROR:Invalide ip address!'],
 ];
 
-const maskToBinaryConvertTests = [
+const convertMaskToBinaryTest = [
   {
-    testName: 'Converting ip subnet mask to binary',
+    testName: 'Converting subnet mask to binary',
     context: ip,
     fn: ip.maskToBinary,
   },
@@ -221,9 +221,9 @@ const maskToBinaryConvertTests = [
   ['128.0.0.0.0', 'ERROR:Invalide subnet mask!'],
 ];
 
-const getIpFromBinaryTests = [
+const getIpFromBinaryTest = [
   {
-    testName: 'Getting ip-address from binary',
+    testName: 'Getting ip address from binary',
     context: ip,
     fn: ip.fromBinary,
   },
@@ -239,9 +239,9 @@ const getIpFromBinaryTests = [
   ['0.0.0.0', 'ERROR:Invalid binary ip entered!'],
 ];
 
-const maskToPrefixConvertTests = [
+const convertMaskToPrefixTest = [
   {
-    testName: 'Converting ip-subnet mask to prefix',
+    testName: 'Converting subnet mask to prefix',
     context: ip,
     fn: ip.maskToPrefix,
   },
@@ -257,9 +257,9 @@ const maskToPrefixConvertTests = [
   [255255255255, 'ERROR:Invalide subnet mask!'],
 ];
 
-const getMaskFromPrefixTests = [
+const getMaskFromPrefixTest = [
   {
-    testName: 'Getting ip-subnet mask from prefix',
+    testName: 'Getting subnet mask from prefix',
     context: ip,
     fn: ip.maskFromPrefix,
   },
@@ -275,9 +275,9 @@ const getMaskFromPrefixTests = [
   [[16], 'ERROR:Invalid prefix entered!'],
 ];
 
-const getWildcardMaskFromPrefixTests = [
+const getWildcardMaskFromPrefixTest = [
   {
-    testName: 'Getting ip-wildcard mask from prefix',
+    testName: 'Getting wildcard mask from prefix',
     context: ip,
     fn: ip.wildcardMaskFromPrefix,
   },
@@ -293,9 +293,9 @@ const getWildcardMaskFromPrefixTests = [
   [[16], 'ERROR:Invalid prefix entered!'],
 ];
 
-const getIpNetworkAddressTests = [
+const getNetworkAddressTest = [
   {
-    testName: 'Getting ip-network address',
+    testName: 'Getting ip network address',
     context: ip,
     fn: ip.getNetworkAddress,
   },
@@ -311,9 +311,9 @@ const getIpNetworkAddressTests = [
   [['23.2.20.23', '240.0.0.0'], '16.0.0.0/4'],
 ];
 
-const ipInNetworkIncludingTests = [
+const ipInNetworkIncludingTest = [
   {
-    testName: 'Ip-address in ip-network including',
+    testName: 'Ip address in network including',
     context: ip,
     fn: ip.isNetworkIncludes,
   },
@@ -338,9 +338,9 @@ const ipInNetworkIncludingTests = [
   ],
 ];
 
-const getNetworkBroadcastAddressTests = [
+const getNetworkBroadcastAddressTest = [
   {
-    testName: 'Getting ip-network broadcast address',
+    testName: 'Getting network broadcast address',
     context: ip,
     fn: ip.getNetworkBroadcastAddress,
   },
@@ -356,7 +356,7 @@ const getNetworkBroadcastAddressTests = [
   [['30.124.95.120', '/31'], 'ERROR:Invalide ip network!'],
 ];
 
-const getClassTests = [
+const getClassTest = [
   {
     testName: 'Getting ip subnet class',
     context: ip,
@@ -374,7 +374,7 @@ const getClassTests = [
   ['127.0.0.0.10', 'ERROR:Invalide ip address!'],
 ];
 
-const getHostsCountTests = [
+const getHostsCountTest = [
   {
     testName: 'Getting count of hosts by prefix',
     context: ip,
@@ -392,9 +392,9 @@ const getHostsCountTests = [
   [false, 'ERROR:Invalid prefix entered!'],
 ];
 
-const getNetworkUsableHostRangeTests = [
+const getNetworkUsableHostRangeTest = [
   {
-    testName: 'Getting usable host IP range by network',
+    testName: 'Getting usable host ip addresses range by network',
     context: ip,
     fn: ip.getNetworkUsableHostRange,
   },
@@ -434,9 +434,9 @@ const getNetworkUsableHostRangeTests = [
   ['37.73.144.51/32', 'ERROR:Network has no usable hosts!'],
 ];
 
-const splitNetworkInHalfTests = [
+const splitNetworkInHalfTest = [
   {
-    testName: 'Splitting ip-network in half',
+    testName: 'Splitting ip network in half',
     context: ip,
     fn: ip.splitNetworkInHalf,
   },
@@ -453,29 +453,29 @@ const splitNetworkInHalfTests = [
 ];
 
 const allTests = [
-  validationTests,
-  binaryValidationTests,
-  maskValidationTests,
-  prefixValidationTests,
-  ipNetworkValidation,
-  parseNetworkTests,
-  toArrayConvertTests,
-  getIpFromArrayTests,
-  toDecimalConvertTests,
-  getIpFromDecimalTests,
-  toBinaryConvertTests,
-  maskToBinaryConvertTests,
-  getIpFromBinaryTests,
-  maskToPrefixConvertTests,
-  getMaskFromPrefixTests,
-  getWildcardMaskFromPrefixTests,
-  getIpNetworkAddressTests,
-  ipInNetworkIncludingTests,
-  getNetworkBroadcastAddressTests,
-  getClassTests,
-  getHostsCountTests,
-  getNetworkUsableHostRangeTests,
-  splitNetworkInHalfTests,
+  ipValidationTest,
+  binaryValidationTest,
+  maskValidationTest,
+  prefixValidationTest,
+  networkValidationTest,
+  parseNetworkTest,
+  convertIpToArraytTest,
+  getIpFromArrayTest,
+  convertIpToDecimalTest,
+  getIpFromDecimalTest,
+  convertIpToBinaryTest,
+  convertMaskToBinaryTest,
+  getIpFromBinaryTest,
+  convertMaskToPrefixTest,
+  getMaskFromPrefixTest,
+  getWildcardMaskFromPrefixTest,
+  getNetworkAddressTest,
+  ipInNetworkIncludingTest,
+  getNetworkBroadcastAddressTest,
+  getClassTest,
+  getHostsCountTest,
+  getNetworkUsableHostRangeTest,
+  splitNetworkInHalfTest,
 ];
 
 runTests(allTests);
