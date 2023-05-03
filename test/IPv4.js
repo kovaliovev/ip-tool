@@ -107,10 +107,10 @@ const parseNetworkTests = [
   ['3.3.3.4/31', ['3.3.3.4', 31]],
   ['0.0.0.0/0', ['0.0.0.0', 0]],
   ['255.255.255.255/32', ['255.255.255.255', 32]],
-  [['37.73.144.0', '/23'], 'ERROR:Invalide ip-network!'],
-  ['37.73.144.45/23', 'ERROR:Invalide ip-network!'],
-  ['255.255.255.256/32', 'ERROR:Invalide ip-network!'],
-  ['0.0.0.1/0', 'ERROR:Invalide ip-network!'],
+  [['37.73.144.0', '/23'], 'ERROR:Invalide ip network!'],
+  ['37.73.144.45/23', 'ERROR:Invalide ip network!'],
+  ['255.255.255.256/32', 'ERROR:Invalide ip network!'],
+  ['0.0.0.1/0', 'ERROR:Invalide ip network!'],
 ];
 
 const toArrayConvertTests = [
@@ -124,11 +124,11 @@ const toArrayConvertTests = [
   ['255.255.255.255', [255, 255, 255, 255]],
   ['1.2.3.4', [1, 2, 3, 4]],
   ['0.0.0.1', [0, 0, 0, 1]],
-  ['111.222.-2.0', 'ERROR:Invalid IP-address!'],
-  ['256.256.256.256', 'ERROR:Invalid IP-address!'],
-  ['10.255.255', 'ERROR:Invalid IP-address!'],
-  ['ten.zero.one.one', 'ERROR:Invalid IP-address!'],
-  ['127.0.0.0.10', 'ERROR:Invalid IP-address!'],
+  ['111.222.-2.0', 'ERROR:Invalide ip address!'],
+  ['256.256.256.256', 'ERROR:Invalide ip address!'],
+  ['10.255.255', 'ERROR:Invalide ip address!'],
+  ['ten.zero.one.one', 'ERROR:Invalide ip address!'],
+  ['127.0.0.0.10', 'ERROR:Invalide ip address!'],
 ];
 
 const getIpFromArrayTests = [
@@ -162,9 +162,9 @@ const toDecimalConvertTests = [
   ['0.0.0.1', 1],
   ['1.0.0.0', 16777216],
   ['100.200.100.200', 1690854600],
-  ['10.255.255.256', 'ERROR:Invalid IP-address!'],
-  ['10.0.0.one', 'ERROR:Invalid IP-address!'],
-  ['127.0.0.0.10', 'ERROR:Invalid IP-address!'],
+  ['10.255.255.256', 'ERROR:Invalide ip address!'],
+  ['10.0.0.one', 'ERROR:Invalide ip address!'],
+  ['127.0.0.0.10', 'ERROR:Invalide ip address!'],
 ];
 
 const getIpFromDecimalTests = [
@@ -198,9 +198,9 @@ const toBinaryConvertTests = [
   ['196.128.64.0', '11000100.10000000.01000000.00000000'],
   ['128.0.0.0', '10000000.00000000.00000000.00000000'],
   ['100.200.100.200', '01100100.11001000.01100100.11001000'],
-  ['10.255.255.256', 'ERROR:Invalid IP-address!'],
-  ['10.0.0.one', 'ERROR:Invalid IP-address!'],
-  ['127.0.0.0.10', 'ERROR:Invalid IP-address!'],
+  ['10.255.255.256', 'ERROR:Invalide ip address!'],
+  ['10.0.0.one', 'ERROR:Invalide ip address!'],
+  ['127.0.0.0.10', 'ERROR:Invalide ip address!'],
 ];
 
 const maskToBinaryConvertTests = [
@@ -213,12 +213,12 @@ const maskToBinaryConvertTests = [
   ['255.255.255.255', '11111111.11111111.11111111.11111111'],
   ['255.255.240.0', '11111111.11111111.11110000.00000000'],
   ['248.0.0.0', '11111000.00000000.00000000.00000000'],
-  ['255.255.64.0', 'ERROR:Invalid subnet mask!'],
-  ['20.23.20.13', 'ERROR:Invalid subnet mask!'],
-  ['255.255.0', 'ERROR:Invalid subnet mask!'],
-  ['256.0.0.0', 'ERROR:Invalid subnet mask!'],
-  ['224.0.0.one', 'ERROR:Invalid subnet mask!'],
-  ['128.0.0.0.0', 'ERROR:Invalid subnet mask!'],
+  ['255.255.64.0', 'ERROR:Invalide subnet mask!'],
+  ['20.23.20.13', 'ERROR:Invalide subnet mask!'],
+  ['255.255.0', 'ERROR:Invalide subnet mask!'],
+  ['256.0.0.0', 'ERROR:Invalide subnet mask!'],
+  ['224.0.0.one', 'ERROR:Invalide subnet mask!'],
+  ['128.0.0.0.0', 'ERROR:Invalide subnet mask!'],
 ];
 
 const getIpFromBinaryTests = [
@@ -250,11 +250,11 @@ const maskToPrefixConvertTests = [
   ['255.252.0.0', 14],
   ['255.255.255.224', 27],
   ['128.0.0.0', 1],
-  ['0.0.0.128', 'ERROR:Invalid subnet mask!'],
-  ['255.255.255.25', 'ERROR:Invalid subnet mask!'],
-  ['0.0.0.0.0', 'ERROR:Invalid subnet mask!'],
-  ['255.255.255', 'ERROR:Invalid subnet mask!'],
-  [255255255255, 'ERROR:Invalid subnet mask!'],
+  ['0.0.0.128', 'ERROR:Invalide subnet mask!'],
+  ['255.255.255.25', 'ERROR:Invalide subnet mask!'],
+  ['0.0.0.0.0', 'ERROR:Invalide subnet mask!'],
+  ['255.255.255', 'ERROR:Invalide subnet mask!'],
+  [255255255255, 'ERROR:Invalide subnet mask!'],
 ];
 
 const getMaskFromPrefixTests = [
@@ -304,10 +304,10 @@ const getIpNetworkAddressTests = [
   [['255.255.255.255', '0.0.0.0'], '0.0.0.0/0'],
   [['34.100.255.45', '255.255.252.0'], '34.100.252.0/22'],
   [['255.0.255.255', '255.255.255.240'], '255.0.255.240/28'],
-  [['255.256.255.255', '255.255.128.0'], 'ERROR:Invalid IP-address!'],
-  [['255.200.100.10', '255.255.255.250'], 'ERROR:Invalid subnet mask!'],
-  [[255, '255.255.128.0'], 'ERROR:Invalid IP-address!'],
-  [['255.200.100.10', true], 'ERROR:Invalid subnet mask!'],
+  [['255.256.255.255', '255.255.128.0'], 'ERROR:Invalide ip address!'],
+  [['255.200.100.10', '255.255.255.250'], 'ERROR:Invalide subnet mask!'],
+  [[255, '255.255.128.0'], 'ERROR:Invalide ip address!'],
+  [['255.200.100.10', true], 'ERROR:Invalide subnet mask!'],
   [['23.2.20.23', '240.0.0.0'], '16.0.0.0/4'],
 ];
 
@@ -326,15 +326,15 @@ const ipInNetworkIncludingTests = [
   [['0.0.0.0/31', '0.0.0.2', '255.255.255.254'], false],
   [
     ['34.100.252.3/22', '34.100.255.12', '255.255.252.0'],
-    'ERROR:Invalide ip-network!',
+    'ERROR:Invalide ip network!',
   ],
   [
     ['34.100.252.0/22', '34.100.255.12.0', '255.255.252.0'],
-    'ERROR:Invalid IP-address!',
+    'ERROR:Invalide ip address!',
   ],
   [
     ['34.100.252.0/22', '34.100.255.12', '255.255.253.0'],
-    'ERROR:Invalid subnet mask!',
+    'ERROR:Invalide subnet mask!',
   ],
 ];
 
@@ -351,9 +351,9 @@ const getNetworkBroadcastAddressTests = [
   ['255.255.255.255/32', '255.255.255.255'],
   ['0.0.0.0/0', '255.255.255.255'],
   ['30.124.95.120/31', '30.124.95.121'],
-  ['30.124.95.119/31', 'ERROR:Invalide ip-network!'],
-  ['e.r.r.o.r.s.t.r.i.n.g', 'ERROR:Invalide ip-network!'],
-  [['30.124.95.120', '/31'], 'ERROR:Invalide ip-network!'],
+  ['30.124.95.119/31', 'ERROR:Invalide ip network!'],
+  ['e.r.r.o.r.s.t.r.i.n.g', 'ERROR:Invalide ip network!'],
+  [['30.124.95.120', '/31'], 'ERROR:Invalide ip network!'],
 ];
 
 const getClassTests = [
@@ -368,10 +368,10 @@ const getClassTests = [
   ['128.45.78.200', 'B'],
   ['196.66.2.225', 'C'],
   ['224.44.222.244', 'D'],
-  ['196.64.0', 'ERROR:Invalid IP-address!'],
-  ['10.255.255.256', 'ERROR:Invalid IP-address!'],
-  ['10.0.0.one', 'ERROR:Invalid IP-address!'],
-  ['127.0.0.0.10', 'ERROR:Invalid IP-address!'],
+  ['196.64.0', 'ERROR:Invalide ip address!'],
+  ['10.255.255.256', 'ERROR:Invalide ip address!'],
+  ['10.0.0.one', 'ERROR:Invalide ip address!'],
+  ['127.0.0.0.10', 'ERROR:Invalide ip address!'],
 ];
 
 const getHostsCountTests = [
@@ -430,7 +430,7 @@ const getNetworkUsableHostRangeTests = [
     '0.0.0.0/0',
     { firstHostAddress: '0.0.0.1', lastHostAddress: '255.255.255.254' },
   ],
-  ['37.73.144.51/30', 'ERROR:Invalide ip-network!'],
+  ['37.73.144.51/30', 'ERROR:Invalide ip network!'],
   ['37.73.144.51/32', 'ERROR:Network has no usable hosts!'],
 ];
 
@@ -447,9 +447,9 @@ const splitNetworkInHalfTests = [
   ['222.245.163.192/26', ['222.245.163.192/27', '222.245.163.224/27']],
   ['222.245.163.224/27', ['222.245.163.224/28', '222.245.163.240/28']],
   ['222.245.163.254/32', 'ERROR:Can not split network with /32 subnet mask!'],
-  ['128.64.0.0/8', 'ERROR:Invalide ip-network!'],
-  [['222.245.163.254', '/32'], 'ERROR:Invalide ip-network!'],
-  [true, 'ERROR:Invalide ip-network!'],
+  ['128.64.0.0/8', 'ERROR:Invalide ip network!'],
+  [['222.245.163.254', '/32'], 'ERROR:Invalide ip network!'],
+  [true, 'ERROR:Invalide ip network!'],
 ];
 
 const allTests = [
