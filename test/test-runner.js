@@ -9,10 +9,10 @@ const runTests = (testsList) => {
     const testInfo = test[0];
     const { testName, context, fn } = testInfo;
     const fnHasOneArg = fn.length === 1;
-    const testCount = test.length - 1;
+    const caseCount = test.length - 1;
     console.log(`${testName} testing started!`);
 
-    for (let i = 1; i <= testCount; i++) {
+    for (let i = 1; i <= caseCount; i++) {
       const testCase = test[i];
       const [input, excepted] = testCase;
       const testCaseName = `${testName} test #${i}`;
@@ -32,7 +32,7 @@ const runTests = (testsList) => {
         }
       }
     }
-    console.log(`Successfully passed: ${testCount - failed}/${testCount}`);
+    console.log(`Successfully passed: ${caseCount - failed}/${caseCount}`);
     console.log('-----------------------------');
   }
 };
