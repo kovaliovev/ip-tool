@@ -2,6 +2,12 @@
 
 const assert = require('node:assert/strict');
 
+const COLORS = {
+  default: '\x1b[0m',
+  red: '\x1b[31m',
+  green: '\x1b[32m',
+};
+
 const runTests = (testsList) => {
   const errorPrefix = 'ERROR:';
   for (const test of testsList) {
@@ -32,7 +38,12 @@ const runTests = (testsList) => {
         }
       }
     }
-    console.log(`Successfully passed: ${caseCount - failed}/${caseCount}`);
+    const passed = caseCount - failed;
+    const color = passed === caseCount ? COLORS['green'] : COLORS['red'];
+    const resetColor = COLORS['default'];
+    console.log(
+      `${color} Successfully passed: ${passed}/${caseCount}${resetColor}`
+    );
     console.log('-----------------------------');
   }
 };
