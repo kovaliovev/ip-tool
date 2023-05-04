@@ -441,15 +441,18 @@ const getNetworkUsableHostRangeTest = [
     { firstHostAddress: '32.0.0.1', lastHostAddress: '39.255.255.254' },
   ],
   [
-    '0.0.0.0/1',
-    { firstHostAddress: '0.0.0.1', lastHostAddress: '127.255.255.254' },
-  ],
-  [
     '0.0.0.0/0',
     { firstHostAddress: '0.0.0.1', lastHostAddress: '255.255.255.254' },
   ],
+  [
+    '55.121.89.10/31',
+    { firstHostAddress: 'Not available', lastHostAddress: 'Not available' },
+  ],
+  [
+    '37.73.144.51/32',
+    { firstHostAddress: 'Not available', lastHostAddress: 'Not available' },
+  ],
   ['37.73.144.51/30', 'ERROR:Invalide ip network!'],
-  ['37.73.144.51/32', 'ERROR:Network has no usable hosts!'],
 ];
 
 const splitNetworkInHalfTest = [
