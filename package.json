@@ -2,6 +2,7 @@
   "name": "ip-tool",
   "version": "1.0.0",
   "description": "Node.js library for processing IP addresses",
+	"main": "ip-tool.js",
   "directories": {
     "lib": "lib",
     "test": "test"
