@@ -455,6 +455,87 @@ const getNetworkUsableHostRangeTest = [
   ['37.73.144.51/30', 'ERROR:Invalide ip network!'],
 ];
 
+const getNetworkInfoTest = [
+  {
+    testName: 'Getting information about network',
+    context: ip,
+    fn: ip.getNetworkInfo,
+  },
+  [
+    '10.0.0.0/8',
+    {
+      address: '10.0.0.0',
+      binaryAddress: '00001010.00000000.00000000.00000000',
+      prefix: 8,
+      mask: '255.0.0.0',
+      binaryMask: '11111111.00000000.00000000.00000000',
+      wildcardMask: '0.255.255.255',
+      networkClass: 'A',
+      decimalId: 167772160,
+      totalHosts: 16777216,
+      firstHostAddress: '10.0.0.1',
+      lastHostAddress: '10.255.255.254',
+      broadcastAddress: '10.255.255.255',
+      isPrivate: true,
+    },
+  ],
+  [
+    '192.64.0.0/16',
+    {
+      address: '192.64.0.0',
+      binaryAddress: '11000000.01000000.00000000.00000000',
+      prefix: 16,
+      mask: '255.255.0.0',
+      binaryMask: '11111111.11111111.00000000.00000000',
+      wildcardMask: '0.0.255.255',
+      networkClass: 'C',
+      decimalId: 3225419776,
+      totalHosts: 65536,
+      firstHostAddress: '192.64.0.1',
+      lastHostAddress: '192.64.255.254',
+      broadcastAddress: '192.64.255.255',
+      isPrivate: false,
+    },
+  ],
+  [
+    '222.67.30.32/29',
+    {
+      address: '222.67.30.32',
+      binaryAddress: '11011110.01000011.00011110.00100000',
+      prefix: 29,
+      mask: '255.255.255.248',
+      binaryMask: '11111111.11111111.11111111.11111000',
+      wildcardMask: '0.0.0.7',
+      networkClass: 'C',
+      decimalId: 3728940576,
+      totalHosts: 8,
+      firstHostAddress: '222.67.30.33',
+      lastHostAddress: '222.67.30.38',
+      broadcastAddress: '222.67.30.39',
+      isPrivate: false,
+    },
+  ],
+  [
+    '198.18.0.0/15',
+    {
+      address: '198.18.0.0',
+      binaryAddress: '11000110.00010010.00000000.00000000',
+      prefix: 15,
+      mask: '255.254.0.0',
+      binaryMask: '11111111.11111110.00000000.00000000',
+      wildcardMask: '0.1.255.255',
+      networkClass: 'C',
+      decimalId: 3323068416,
+      totalHosts: 131072,
+      firstHostAddress: '198.18.0.1',
+      lastHostAddress: '198.19.255.254',
+      broadcastAddress: '198.19.255.255',
+      isPrivate: true,
+    },
+  ],
+  ['198.19.0.0/15', 'ERROR:Invalide ip network!'],
+];
+
 const splitNetworkInHalfTest = [
   {
     testName: 'Splitting ip network in half',
@@ -497,6 +578,7 @@ const allTests = [
   getClassTest,
   getHostsCountTest,
   getNetworkUsableHostRangeTest,
+  getNetworkInfoTest,
   splitNetworkInHalfTest,
 ];
 
