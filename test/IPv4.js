@@ -95,6 +95,24 @@ const networkValidationTest = [
   [true, false],
 ];
 
+const ipIsPrivateCheckingTest = [
+  {
+    testName: 'Ip address is private checking',
+    context: ip,
+    fn: ip.isPrivate,
+  },
+  [['10.34.28.220', '255.0.0.0'], true],
+  [['172.19.130.0', '255.240.0.0'], true],
+  [['192.168.255.253', '255.255.0.0'], true],
+  [['100.66.66.66', '255.192.0.0'], true],
+  [['192.0.0.169', '255.255.255.0'], true],
+  [['198.19.198.19', '255.254.0.0'], true],
+  [['198.19.198.19', '255.255.0.0'], false],
+  [['196.0.0.1', '255.255.255.0'], false],
+  [['10.0.0.1', '254.0.0.0'], false],
+  [['10.0.0.1', '255.253.0.0'], 'ERROR:Invalide subnet mask!'],
+];
+
 const parseNetworkTest = [
   {
     testName: 'Parsing network to address and prefix',
@@ -458,6 +476,7 @@ const allTests = [
   maskValidationTest,
   prefixValidationTest,
   networkValidationTest,
+  ipIsPrivateCheckingTest,
   parseNetworkTest,
   convertIpToArraytTest,
   getIpFromArrayTest,
