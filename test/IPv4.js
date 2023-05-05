@@ -160,11 +160,11 @@ const getIpFromArrayTest = [
   [[10, 33, 4, 200], '10.33.4.200'],
   [[1, '200', 33, '45'], '1.200.33.45'],
   [['1', '200', '33', '45'], '1.200.33.45'],
-  [[true, true, true, true], 'ERROR:Invalid array entered!'],
-  ['[196, 64, 12]', 'ERROR:Invalid input type!'],
-  [[255, 255, 255, 256], 'ERROR:Invalid array entered!'],
-  [[10, 10, 10, 'one'], 'ERROR:Invalid array entered!'],
-  [[127, 0, 0, 0, 1], 'ERROR:Invalid array entered!'],
+  [[true, true, true, true], 'ERROR:Invalide array entered!'],
+  ['[196, 64, 12]', 'ERROR:Invalide input type!'],
+  [[255, 255, 255, 256], 'ERROR:Invalide array entered!'],
+  [[10, 10, 10, 'one'], 'ERROR:Invalide array entered!'],
+  [[127, 0, 0, 0, 1], 'ERROR:Invalide array entered!'],
 ];
 
 const convertIpToDecimalTest = [
@@ -197,10 +197,10 @@ const getIpFromDecimalTest = [
   [16909060, '1.2.3.4'],
   [1, '0.0.0.1'],
   [16777216, '1.0.0.0'],
-  [-1, 'ERROR:Invalid number entered!'],
-  [12345678900, 'ERROR:Invalid number entered!'],
-  [[1690854600], 'ERROR:Invalid input type!'],
-  [true, 'ERROR:Invalid input type!'],
+  [-1, 'ERROR:Invalide number entered!'],
+  [12345678900, 'ERROR:Invalide number entered!'],
+  [[1690854600], 'ERROR:Invalide input type!'],
+  [true, 'ERROR:Invalide input type!'],
 ];
 
 const convertIpToBinaryTest = [
@@ -251,10 +251,13 @@ const getIpFromBinaryTest = [
   ['00001010.00000000.00000000.00000001', '10.0.0.1'],
   ['11000100.10000000.01000000.00000000', '196.128.64.0'],
   ['10000000.00000000.00000000.00000000', '128.0.0.0'],
-  ['01100100.11001000.01100100.01000102', 'ERROR:Invalid binary ip entered!'],
-  ['01100100.11001000.01100100.01000101.0', 'ERROR:Invalid binary ip entered!'],
-  ['10101110.01001000.10110110.one111111', 'ERROR:Invalid binary ip entered!'],
-  ['0.0.0.0', 'ERROR:Invalid binary ip entered!'],
+  ['01100100.11001000.01100100.01000102', 'ERROR:Invalide binary ip entered!'],
+  [
+    '01100100.11001000.01100100.01000101.0',
+    'ERROR:Invalide binary ip entered!',
+  ],
+  ['10101110.01001000.10110110.one111111', 'ERROR:Invalide binary ip entered!'],
+  ['0.0.0.0', 'ERROR:Invalide binary ip entered!'],
 ];
 
 const convertMaskToPrefixTest = [
@@ -287,10 +290,10 @@ const getMaskFromPrefixTest = [
   [27, '255.255.255.224'],
   [1, '128.0.0.0'],
   [8, '255.0.0.0'],
-  [-1, 'ERROR:Invalid prefix entered!'],
-  [33, 'ERROR:Invalid prefix entered!'],
-  ['16', 'ERROR:Invalid prefix entered!'],
-  [[16], 'ERROR:Invalid prefix entered!'],
+  [-1, 'ERROR:Invalide prefix entered!'],
+  [33, 'ERROR:Invalide prefix entered!'],
+  ['16', 'ERROR:Invalide prefix entered!'],
+  [[16], 'ERROR:Invalide prefix entered!'],
 ];
 
 const getWildcardMaskFromPrefixTest = [
@@ -305,10 +308,10 @@ const getWildcardMaskFromPrefixTest = [
   [27, '0.0.0.31'],
   [1, '127.255.255.255'],
   [8, '0.255.255.255'],
-  [-1, 'ERROR:Invalid prefix entered!'],
-  [33, 'ERROR:Invalid prefix entered!'],
-  ['16', 'ERROR:Invalid prefix entered!'],
-  [[16], 'ERROR:Invalid prefix entered!'],
+  [-1, 'ERROR:Invalide prefix entered!'],
+  [33, 'ERROR:Invalide prefix entered!'],
+  ['16', 'ERROR:Invalide prefix entered!'],
+  [[16], 'ERROR:Invalide prefix entered!'],
 ];
 
 const getNetworkAddressTest = [
@@ -395,10 +398,10 @@ const getHostsCountTest = [
   [16, 65536],
   [4, 268435456],
   [25, 128],
-  ['25', 'ERROR:Invalid prefix entered!'],
-  ['128.64.0.0/8', 'ERROR:Invalid prefix entered!'],
-  [[16], 'ERROR:Invalid prefix entered!'],
-  [false, 'ERROR:Invalid prefix entered!'],
+  ['25', 'ERROR:Invalide prefix entered!'],
+  ['128.64.0.0/8', 'ERROR:Invalide prefix entered!'],
+  [[16], 'ERROR:Invalide prefix entered!'],
+  [false, 'ERROR:Invalide prefix entered!'],
 ];
 
 const getNetworkUsableHostRangeTest = [
