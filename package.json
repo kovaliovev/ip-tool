@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./test/IPv4.js && node ./test/IPv6.js"
   },
   "repository": {
     "type": "git",
