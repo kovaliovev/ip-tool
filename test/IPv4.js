@@ -167,11 +167,11 @@ const getIpFromArrayTest = [
   [[127, 0, 0, 0, 1], 'ERROR:Invalide array entered!'],
 ];
 
-const convertIpToDecimalTest = [
+const convertIpToIntegerTest = [
   {
-    testName: 'Converting ip address to decimal number',
+    testName: 'Converting ip address to integer number',
     context: ip,
-    fn: ip.toDecimal,
+    fn: ip.toInteger,
   },
   ['123.123.123.123', 2071690107],
   ['0.0.0.0', 0],
@@ -185,11 +185,11 @@ const convertIpToDecimalTest = [
   ['127.0.0.0.10', 'ERROR:Invalide ip address!'],
 ];
 
-const getIpFromDecimalTest = [
+const getIpFromIntegerTest = [
   {
-    testName: 'Getting ip address from decimal number',
+    testName: 'Getting ip address from integer number',
     context: ip,
-    fn: ip.fromDecimal,
+    fn: ip.fromInteger,
   },
   [2071690107, '123.123.123.123'],
   [0, '0.0.0.0'],
@@ -465,7 +465,7 @@ const getNetworkInfoTest = [
       binaryMask: '11111111.00000000.00000000.00000000',
       wildcardMask: '0.255.255.255',
       networkClass: 'A',
-      decimalId: 167772160,
+      integerId: 167772160,
       totalHosts: 16777216,
       firstHostAddress: '10.0.0.1',
       lastHostAddress: '10.255.255.254',
@@ -483,7 +483,7 @@ const getNetworkInfoTest = [
       binaryMask: '11111111.11111111.00000000.00000000',
       wildcardMask: '0.0.255.255',
       networkClass: 'C',
-      decimalId: 3225419776,
+      integerId: 3225419776,
       totalHosts: 65536,
       firstHostAddress: '192.64.0.1',
       lastHostAddress: '192.64.255.254',
@@ -501,7 +501,7 @@ const getNetworkInfoTest = [
       binaryMask: '11111111.11111111.11111111.11111000',
       wildcardMask: '0.0.0.7',
       networkClass: 'C',
-      decimalId: 3728940576,
+      integerId: 3728940576,
       totalHosts: 8,
       firstHostAddress: '222.67.30.33',
       lastHostAddress: '222.67.30.38',
@@ -519,7 +519,7 @@ const getNetworkInfoTest = [
       binaryMask: '11111111.11111110.00000000.00000000',
       wildcardMask: '0.1.255.255',
       networkClass: 'C',
-      decimalId: 3323068416,
+      integerId: 3323068416,
       totalHosts: 131072,
       firstHostAddress: '198.18.0.1',
       lastHostAddress: '198.19.255.254',
@@ -621,8 +621,8 @@ const allTests = [
   parseNetworkTest,
   convertIpToArraytTest,
   getIpFromArrayTest,
-  convertIpToDecimalTest,
-  getIpFromDecimalTest,
+  convertIpToIntegerTest,
+  getIpFromIntegerTest,
   convertIpToBinaryTest,
   convertMaskToBinaryTest,
   getIpFromBinaryTest,
