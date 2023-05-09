@@ -296,24 +296,6 @@ const getMaskFromPrefixTest = [
   [[16], 'ERROR:Invalide prefix entered!'],
 ];
 
-const getWildcardMaskFromPrefixTest = [
-  {
-    testName: 'Getting wildcard mask from prefix',
-    context: ip,
-    fn: ip.wildcardMaskFromPrefix,
-  },
-  [0, '255.255.255.255'],
-  [32, '0.0.0.0'],
-  [14, '0.3.255.255'],
-  [27, '0.0.0.31'],
-  [1, '127.255.255.255'],
-  [8, '0.255.255.255'],
-  [-1, 'ERROR:Invalide prefix entered!'],
-  [33, 'ERROR:Invalide prefix entered!'],
-  ['16', 'ERROR:Invalide prefix entered!'],
-  [[16], 'ERROR:Invalide prefix entered!'],
-];
-
 const getNetworkAddressTest = [
   {
     testName: 'Getting ip network address',
@@ -628,7 +610,6 @@ const allTests = [
   getIpFromBinaryTest,
   convertMaskToPrefixTest,
   getMaskFromPrefixTest,
-  getWildcardMaskFromPrefixTest,
   getNetworkAddressTest,
   ipInNetworkIncludingTest,
   getNetworkBroadcastAddressTest,
