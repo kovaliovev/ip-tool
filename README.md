@@ -77,4 +77,4 @@ ipv4.networkSubnet('12.32.0.0/20', [500, 254, 255, 128, 100, 50, 39, 15, 14]);
 // }
 ```
 # Documentation
-_In development..._
+**All library documentation in** [**github-wiki**](https://github.com/kovaliovev/ip-tool/wiki)**!**
