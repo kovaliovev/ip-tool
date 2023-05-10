@@ -113,6 +113,24 @@ const ipIsPrivateCheckingTest = [
   ['10.0.0.256', 'ERROR:Invalide ip address!'],
 ];
 
+const ipInNetworkIncludingTest = [
+  {
+    testName: 'Ip address in network including',
+    context: ip,
+    fn: ip.isNetworkIncludes,
+  },
+  [['0.0.0.0/0', '111.222.91.19'], true],
+  [['255.255.255.255/32', '255.255.255.255'], true],
+  [['0.0.0.0/0', '34.224.199.123'], true],
+  [['34.100.252.0/22', '34.100.255.12'], true],
+  [['34.100.252.0/22', '34.101.255.12'], false],
+  [['34.100.0.0/16', '34.102.255.12'], false],
+  [['0.0.0.0/31', '0.0.0.2'], false],
+  [['255.255.200.0/33', '128.0.0.12'], 'ERROR:Invalide ip network!'],
+  [['34.100.252.3/22', '34.100.255.12'], 'ERROR:Invalide ip network!'],
+  [['34.100.252.0/22', '34.100.255.12.0'], 'ERROR:Invalide ip address!'],
+];
+
 const parseNetworkTest = [
   {
     testName: 'Parsing network to address and prefix',
@@ -322,24 +340,6 @@ const getNetworkAddressTest = [
   [[255, '255.255.128.0'], 'ERROR:Invalide ip address!'],
   [['255.200.100.10', true], 'ERROR:Invalide subnet mask!'],
   [['23.2.20.23', '240.0.0.0'], '16.0.0.0/4'],
-];
-
-const ipInNetworkIncludingTest = [
-  {
-    testName: 'Ip address in network including',
-    context: ip,
-    fn: ip.isNetworkIncludes,
-  },
-  [['0.0.0.0/0', '111.222.91.19'], true],
-  [['255.255.255.255/32', '255.255.255.255'], true],
-  [['0.0.0.0/0', '34.224.199.123'], true],
-  [['34.100.252.0/22', '34.100.255.12'], true],
-  [['34.100.252.0/22', '34.101.255.12'], false],
-  [['34.100.0.0/16', '34.102.255.12'], false],
-  [['0.0.0.0/31', '0.0.0.2'], false],
-  [['255.255.200.0/33', '128.0.0.12'], 'ERROR:Invalide ip network!'],
-  [['34.100.252.3/22', '34.100.255.12'], 'ERROR:Invalide ip network!'],
-  [['34.100.252.0/22', '34.100.255.12.0'], 'ERROR:Invalide ip address!'],
 ];
 
 const getNetworkBroadcastAddressTest = [
