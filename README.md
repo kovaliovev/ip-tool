@@ -27,6 +27,10 @@ _In development..._
 ```shell
 git clone https://github.com/kovaliovev/ip-tool.git
 ```
+### npm
+```shell
+npm i @kovaliovev/ip-tool
+```
 
 # Usage
 ```js
