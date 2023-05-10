@@ -278,11 +278,11 @@ const getIpFromBinaryTest = [
   ['0.0.0.0', 'ERROR:Invalide binary ip entered!'],
 ];
 
-const convertMaskToPrefixTest = [
+const convertSubnetMaskToPrefixTest = [
   {
     testName: 'Converting subnet mask to prefix',
     context: ip,
-    fn: ip.maskToPrefix,
+    fn: ip.subnetMaskToPrefix,
   },
   ['0.0.0.0', 0],
   ['255.255.255.255', 32],
@@ -618,7 +618,7 @@ const allTests = [
   convertIpToBinaryTest,
   convertMaskToBinaryTest,
   getIpFromBinaryTest,
-  convertMaskToPrefixTest,
+  convertSubnetMaskToPrefixTest,
   getMaskFromPrefixTest,
   getNetworkAddressTest,
   ipInNetworkIncludingTest,
