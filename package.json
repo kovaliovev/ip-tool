@@ -1,8 +1,8 @@
 {
   "name": "@kovaliovev/ip-tool",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Node.js library for processing IP addresses",
-	"main": "ip-tool.js",
+  "main": "ip-tool.js",
   "directories": {
     "lib": "lib"
   },
@@ -18,10 +18,10 @@
     "ip-address",
     "ipv4",
     "ipv6",
-		"subnet",
-		"subnetting",
-		"cidr",
-		"mask"
+    "subnet",
+    "subnetting",
+    "cidr",
+    "mask"
   ],
   "author": "Evgheniy Kovaliov <kovaliov.evgeniy11@gmail.com>",
   "license": "MIT",
