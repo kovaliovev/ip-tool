@@ -38,6 +38,24 @@ const ipValidationTest = [
   [0xffffffffffff, false],
 ];
 
-const allTests = [ipValidationTest];
+const ipIsShortCheckingTest = [
+  {
+    testName: 'Ip address is short checking',
+    context: ipv6,
+    fn: ipv6.isShort,
+  },
+  ['::', true],
+  ['::aFf1', true],
+  ['7759:f8bf:2d23:7be9:25fb:adab:6b5:b7a9', true],
+  ['7759:f8bf:2d23:7be9:25fb:adab:b6b5:b7a9', false],
+  ['0000:0000:0000:0000:0000:0000:0000:0000', false],
+  ['FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF', false],
+  ['7759:f8bf:2d23:7be9:25fb:adab:b6b5:', 'ERROR:Invalide ip address!'],
+  [':1020:', 'ERROR:Invalide ip address!'],
+  ['7759:f8bf:JJJJ:7be9:25fb:adab:b6b5:b7a9', 'ERROR:Invalide ip address!'],
+  ['7759:f8bf:4add:7be9:25fb:adab:b6b5:b7a9:11', 'ERROR:Invalide ip address!'],
+];
+
+const allTests = [ipValidationTest, ipIsShortCheckingTest];
 
 runTests(allTests);
