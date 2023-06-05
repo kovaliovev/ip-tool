@@ -3,13 +3,13 @@
 const { IPv4 } = require('../lib/IPv4.js');
 const { runTests } = require('./test-runner.js');
 
-const ip = new IPv4();
+const ipv4 = new IPv4();
 
 const ipValidationTest = [
   {
     testName: 'Ip address validation',
-    context: ip,
-    fn: ip.isValide,
+    context: ipv4,
+    fn: ipv4.isValide,
   },
   ['123.123.123.123', true],
   ['0.0.0.0', true],
@@ -26,8 +26,8 @@ const ipValidationTest = [
 const binaryValidationTest = [
   {
     testName: 'Binary ip address validation',
-    context: ip,
-    fn: ip.isBinaryValide,
+    context: ipv4,
+    fn: ipv4.isBinaryValide,
   },
   ['00000000.00000000.00000000.00000000', true],
   ['11111111.11111111.11111111.11111111', true],
@@ -44,8 +44,8 @@ const binaryValidationTest = [
 const maskValidationTest = [
   {
     testName: 'Ip subnet mask validation',
-    context: ip,
-    fn: ip.isMaskValide,
+    context: ipv4,
+    fn: ipv4.isMaskValide,
   },
   ['0.0.0.0', true],
   ['255.255.255.255', true],
@@ -62,8 +62,8 @@ const maskValidationTest = [
 const prefixValidationTest = [
   {
     testName: 'Ip prefix validation',
-    context: ip,
-    fn: ip.isPrefixValide,
+    context: ipv4,
+    fn: ipv4.isPrefixValide,
   },
   [0, true],
   [32, true],
@@ -80,8 +80,8 @@ const prefixValidationTest = [
 const networkValidationTest = [
   {
     testName: 'Ip network address validation',
-    context: ip,
-    fn: ip.isNetworkValide,
+    context: ipv4,
+    fn: ipv4.isNetworkValide,
   },
   ['0.0.0.0/0', true],
   ['255.255.255.255/32', true],
@@ -98,8 +98,8 @@ const networkValidationTest = [
 const ipIsPrivateCheckingTest = [
   {
     testName: 'Ip address is private checking',
-    context: ip,
-    fn: ip.isPrivate,
+    context: ipv4,
+    fn: ipv4.isPrivate,
   },
   ['10.34.28.220', true],
   ['172.19.130.0', true],
@@ -116,8 +116,8 @@ const ipIsPrivateCheckingTest = [
 const ipInNetworkIncludingTest = [
   {
     testName: 'Ip address in network including',
-    context: ip,
-    fn: ip.isNetworkIncludes,
+    context: ipv4,
+    fn: ipv4.isNetworkIncludes,
   },
   [['0.0.0.0/0', '111.222.91.19'], true],
   [['255.255.255.255/32', '255.255.255.255'], true],
@@ -134,8 +134,8 @@ const ipInNetworkIncludingTest = [
 const parseNetworkTest = [
   {
     testName: 'Parsing network to address and prefix',
-    context: ip,
-    fn: ip.parseNetwork,
+    context: ipv4,
+    fn: ipv4.parseNetwork,
   },
   ['37.73.144.0/23', ['37.73.144.0', 23]],
   ['255.89.111.64/26', ['255.89.111.64', 26]],
@@ -152,8 +152,8 @@ const parseNetworkTest = [
 const convertIpToArraytTest = [
   {
     testName: 'Converting ip address to array',
-    context: ip,
-    fn: ip.toArray,
+    context: ipv4,
+    fn: ipv4.toArray,
   },
   ['123.123.123.123', [123, 123, 123, 123]],
   ['0.0.0.0', [0, 0, 0, 0]],
@@ -170,8 +170,8 @@ const convertIpToArraytTest = [
 const getIpFromArrayTest = [
   {
     testName: 'Getting ip address from array',
-    context: ip,
-    fn: ip.fromArray,
+    context: ipv4,
+    fn: ipv4.fromArray,
   },
   [[0, 0, 0, 0], '0.0.0.0'],
   [[255, 255, 255, 255], '255.255.255.255'],
@@ -188,8 +188,8 @@ const getIpFromArrayTest = [
 const convertIpToIntegerTest = [
   {
     testName: 'Converting ip address to integer number',
-    context: ip,
-    fn: ip.toInteger,
+    context: ipv4,
+    fn: ipv4.toInteger,
   },
   ['123.123.123.123', 2071690107],
   ['0.0.0.0', 0],
@@ -206,8 +206,8 @@ const convertIpToIntegerTest = [
 const getIpFromIntegerTest = [
   {
     testName: 'Getting ip address from integer number',
-    context: ip,
-    fn: ip.fromInteger,
+    context: ipv4,
+    fn: ipv4.fromInteger,
   },
   [2071690107, '123.123.123.123'],
   [0, '0.0.0.0'],
@@ -224,8 +224,8 @@ const getIpFromIntegerTest = [
 const convertIpToBinaryTest = [
   {
     testName: 'Converting ip address to binary',
-    context: ip,
-    fn: ip.toBinary,
+    context: ipv4,
+    fn: ipv4.toBinary,
   },
   ['123.123.123.123', '01111011.01111011.01111011.01111011'],
   ['0.0.0.0', '00000000.00000000.00000000.00000000'],
@@ -242,8 +242,8 @@ const convertIpToBinaryTest = [
 const convertMaskToBinaryTest = [
   {
     testName: 'Converting subnet mask to binary',
-    context: ip,
-    fn: ip.maskToBinary,
+    context: ipv4,
+    fn: ipv4.maskToBinary,
   },
   ['0.0.0.0', '00000000.00000000.00000000.00000000'],
   ['255.255.255.255', '11111111.11111111.11111111.11111111'],
@@ -260,8 +260,8 @@ const convertMaskToBinaryTest = [
 const getIpFromBinaryTest = [
   {
     testName: 'Getting ip address from binary',
-    context: ip,
-    fn: ip.fromBinary,
+    context: ipv4,
+    fn: ipv4.fromBinary,
   },
   ['01111011.01111011.01111011.01111011', '123.123.123.123'],
   ['00000000.00000000.00000000.00000000', '0.0.0.0'],
@@ -281,8 +281,8 @@ const getIpFromBinaryTest = [
 const convertSubnetMaskToPrefixTest = [
   {
     testName: 'Converting subnet mask to prefix',
-    context: ip,
-    fn: ip.subnetMaskToPrefix,
+    context: ipv4,
+    fn: ipv4.subnetMaskToPrefix,
   },
   ['0.0.0.0', 0],
   ['255.255.255.255', 32],
@@ -299,8 +299,8 @@ const convertSubnetMaskToPrefixTest = [
 const getMaskFromPrefixTest = [
   {
     testName: 'Getting subnet/wildcard mask from prefix',
-    context: ip,
-    fn: ip.maskFromPrefix,
+    context: ipv4,
+    fn: ipv4.maskFromPrefix,
   },
   [[0, false], '0.0.0.0'],
   [[32, false], '255.255.255.255'],
@@ -327,8 +327,8 @@ const getMaskFromPrefixTest = [
 const getNetworkAddressTest = [
   {
     testName: 'Getting ip network address',
-    context: ip,
-    fn: ip.getNetworkAddress,
+    context: ipv4,
+    fn: ipv4.getNetworkAddress,
   },
   [['0.0.0.0', '0.0.0.0'], '0.0.0.0/0'],
   [['255.255.255.255', '255.255.255.255'], '255.255.255.255/32'],
@@ -345,8 +345,8 @@ const getNetworkAddressTest = [
 const getNetworkBroadcastAddressTest = [
   {
     testName: 'Getting network broadcast address',
-    context: ip,
-    fn: ip.getNetworkBroadcastAddress,
+    context: ipv4,
+    fn: ipv4.getNetworkBroadcastAddress,
   },
   ['37.73.144.0/23', '37.73.145.255'],
   ['222.33.32.0/19', '222.33.63.255'],
@@ -363,8 +363,8 @@ const getNetworkBroadcastAddressTest = [
 const getClassTest = [
   {
     testName: 'Getting ip subnet class',
-    context: ip,
-    fn: ip.getClass,
+    context: ipv4,
+    fn: ipv4.getClass,
   },
   ['123.123.123.123', 'A'],
   ['0.0.0.0', 'A'],
@@ -381,8 +381,8 @@ const getClassTest = [
 const getHostsCountTest = [
   {
     testName: 'Getting count of hosts by prefix',
-    context: ip,
-    fn: ip.getHostsCount,
+    context: ipv4,
+    fn: ipv4.getHostsCount,
   },
   [32, 1],
   [0, 4294967296],
@@ -399,8 +399,8 @@ const getHostsCountTest = [
 const getNetworkUsableHostRangeTest = [
   {
     testName: 'Getting usable host ip addresses range by network',
-    context: ip,
-    fn: ip.getNetworkUsableHostRange,
+    context: ipv4,
+    fn: ipv4.getNetworkUsableHostRange,
   },
   [
     '37.73.144.52/30',
@@ -444,8 +444,8 @@ const getNetworkUsableHostRangeTest = [
 const getNetworkInfoTest = [
   {
     testName: 'Getting information about network',
-    context: ip,
-    fn: ip.getNetworkInfo,
+    context: ipv4,
+    fn: ipv4.getNetworkInfo,
   },
   [
     '10.0.0.0/8',
@@ -525,8 +525,8 @@ const getNetworkInfoTest = [
 const splitNetworkInHalfTest = [
   {
     testName: 'Splitting ip network in half',
-    context: ip,
-    fn: ip.splitNetworkInHalf,
+    context: ipv4,
+    fn: ipv4.splitNetworkInHalf,
   },
   ['222.245.160.0/22', ['222.245.160.0/23', '222.245.162.0/23']],
   ['222.245.162.0/23', ['222.245.162.0/24', '222.245.163.0/24']],
@@ -543,8 +543,8 @@ const splitNetworkInHalfTest = [
 const ipNetworkSubnettingTest = [
   {
     testName: 'Ip network subnetting',
-    context: ip,
-    fn: ip.networkSubnet,
+    context: ipv4,
+    fn: ipv4.networkSubnet,
   },
   [
     ['10.0.0.0/8', [999999, 2323, 5, 23, 86, 111, 9, 232, 4, 2, 3]],
