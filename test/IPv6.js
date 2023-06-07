@@ -61,6 +61,37 @@ const ipIsShortCheckingTest = [
   ['7759:f8bf:4add:7be9:25fb:adab:b6b5:b7a9:11', 'ERROR:Invalide ip address!'],
 ];
 
-const allTests = [ipValidationTest, ipIsShortCheckingTest];
+const convertIpToLongFormatTest = [
+  {
+    testName: 'Ip address to long format converting',
+    context: ipv6,
+    fn: ipv6.toLong,
+  },
+  ['::', '0000:0000:0000:0000:0000:0000:0000:0000'],
+  ['::aFf1', '0000:0000:0000:0000:0000:0000:0000:aFf1'],
+  ['aFf1::', 'aFf1:0000:0000:0000:0000:0000:0000:0000'],
+  ['aFf1::aFf1', 'aFf1:0000:0000:0000:0000:0000:0000:aFf1'],
+  ['a::F', '000a:0000:0000:0000:0000:0000:0000:000F'],
+  ['a:22:333:4444:cc:d::F', '000a:0022:0333:4444:00cc:000d:0000:000F'],
+  ['a:22:333:4444:cc:d:FFFF:0', '000a:0022:0333:4444:00cc:000d:FFFF:0000'],
+  [
+    '7759:f8bf:2d23:7be9:25fb:adab:b6b5:b7a9',
+    '7759:f8bf:2d23:7be9:25fb:adab:b6b5:b7a9',
+  ],
+  [
+    '7759:f8bf:2d23:7be9:25fb:adab:b6b5::',
+    '7759:f8bf:2d23:7be9:25fb:adab:b6b5:0000',
+  ],
+  [
+    '::f8bf:2d23:7be9:25fb:adab:b6b5:b7a9',
+    '0000:f8bf:2d23:7be9:25fb:adab:b6b5:b7a9',
+  ],
+];
+
+const allTests = [
+  ipValidationTest,
+  ipIsShortCheckingTest,
+  convertIpToLongFormatTest,
+];
 
 runTests(allTests);
