@@ -86,6 +86,11 @@ const convertIpToLongFormatTest = [
     '::f8bf:2d23:7be9:25fb:adab:b6b5:b7a9',
     '0000:f8bf:2d23:7be9:25fb:adab:b6b5:b7a9',
   ],
+  ['im a ip address, honestly!', 'ERROR:Invalide ip address!'],
+  ['7759:f8bf:2d23:7be9:25fb:adab:b6b5:', 'ERROR:Invalide ip address!'],
+  [':1020:', 'ERROR:Invalide ip address!'],
+  ['7759:f8bf:JJJJ:7be9:25fb:adab:b6b5:b7a9', 'ERROR:Invalide ip address!'],
+  ['7759:f8bf:4add:7be9:25fb:adab:b6b5:b7a9:11', 'ERROR:Invalide ip address!'],
 ];
 
 const allTests = [
