@@ -20,6 +20,8 @@
 - subnetting
 
 ## IPv6 functions
+- validation
+- converting
 _In development..._
 
 # Installation
