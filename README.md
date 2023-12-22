@@ -42,8 +42,8 @@ npm i @kovaliovev/ip-tool
 const { IPv4 } = require('ip-tool');
 const ipv4 = new IPv4();
 
-ipv4.isValide('22.7.20.20'); // true
-ipv4.isMaskValide('22.7.20.20'); // false
+ipv4.isValid('22.7.20.20'); // true
+ipv4.isMaskValid('22.7.20.20'); // false
 ipv4.isPrivate('198.19.0.30'); // true
 
 ipv4.toArray('100.99.255.7'); // [100, 99, 255, 7]
