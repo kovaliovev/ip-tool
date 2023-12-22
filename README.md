@@ -11,7 +11,7 @@
 # ip-tool
 📂 Simple node.js library for processing IP addresses, networks, subnet/wildcard masks, prefixes.    
    
-![NPM Downloads](https://img.shields.io/npm/dm/@kovaliovev/ip-tool?color=rgb%280%2C191%2C64%29&label=NPM%20Downloads&style=flat-square)   
+![NPM Downloads](https://img.shields.io/npm/dy/@kovaliovev/ip-tool?color=rgb%280%2C191%2C64%29&label=NPM%20Downloads&style=flat-square)   
 
 ## IPv4 functions
 - validation
