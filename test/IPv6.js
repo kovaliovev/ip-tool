@@ -9,7 +9,7 @@ const ipValidationTest = [
   {
     testName: 'Ip address validation',
     context: ipv6,
-    fn: ipv6.isValide,
+    fn: ipv6.isValid,
   },
   ['::', true],
   ['::0', true],
@@ -55,10 +55,10 @@ const ipIsShortCheckingTest = [
   ['7759:f8bf:2d23:7be9:25fb:adab:b6b5:b7a9', false],
   ['0000:0000:0000:0000:0000:0000:0000:0000', false],
   ['FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF', false],
-  ['7759:f8bf:2d23:7be9:25fb:adab:b6b5:', 'ERROR:Invalide ip address!'],
-  [':1020:', 'ERROR:Invalide ip address!'],
-  ['7759:f8bf:JJJJ:7be9:25fb:adab:b6b5:b7a9', 'ERROR:Invalide ip address!'],
-  ['7759:f8bf:4add:7be9:25fb:adab:b6b5:b7a9:11', 'ERROR:Invalide ip address!'],
+  ['7759:f8bf:2d23:7be9:25fb:adab:b6b5:', 'ERROR:Invalid ip address!'],
+  [':1020:', 'ERROR:Invalid ip address!'],
+  ['7759:f8bf:JJJJ:7be9:25fb:adab:b6b5:b7a9', 'ERROR:Invalid ip address!'],
+  ['7759:f8bf:4add:7be9:25fb:adab:b6b5:b7a9:11', 'ERROR:Invalid ip address!'],
 ];
 
 const convertIpToLongFormatTest = [
@@ -86,11 +86,11 @@ const convertIpToLongFormatTest = [
     '::f8bf:2d23:7be9:25fb:adab:b6b5:b7a9',
     '0000:f8bf:2d23:7be9:25fb:adab:b6b5:b7a9',
   ],
-  ['im a ip address, honestly!', 'ERROR:Invalide ip address!'],
-  ['7759:f8bf:2d23:7be9:25fb:adab:b6b5:', 'ERROR:Invalide ip address!'],
-  [':1020:', 'ERROR:Invalide ip address!'],
-  ['7759:f8bf:JJJJ:7be9:25fb:adab:b6b5:b7a9', 'ERROR:Invalide ip address!'],
-  ['7759:f8bf:4add:7be9:25fb:adab:b6b5:b7a9:11', 'ERROR:Invalide ip address!'],
+  ['im a ip address, honestly!', 'ERROR:Invalid ip address!'],
+  ['7759:f8bf:2d23:7be9:25fb:adab:b6b5:', 'ERROR:Invalid ip address!'],
+  [':1020:', 'ERROR:Invalid ip address!'],
+  ['7759:f8bf:JJJJ:7be9:25fb:adab:b6b5:b7a9', 'ERROR:Invalid ip address!'],
+  ['7759:f8bf:4add:7be9:25fb:adab:b6b5:b7a9:11', 'ERROR:Invalid ip address!'],
 ];
 
 const convertIpToShortFormatTest = [
@@ -119,10 +119,10 @@ const convertIpToShortFormatTest = [
   ],
   ['7759:0000:0000:7be9:0000:0000:0000:b7a9', '7759:0:0:7be9::b7a9'],
   ['0000:f8bf:000:7be9:00:adab:0:b7a9', '::f8bf:0:7be9:0:adab:0:b7a9'],
-  ['7759:f8bf:2d23:7be9:25fb:adab:b6b5:', 'ERROR:Invalide ip address!'],
-  [':1020:', 'ERROR:Invalide ip address!'],
-  ['7759:f8bf:JJJJ:7be9:25fb:adab:b6b5:b7a9', 'ERROR:Invalide ip address!'],
-  ['7759:f8bf:4add:7be9:25fb:adab:b6b5:b7a9:11', 'ERROR:Invalide ip address!'],
+  ['7759:f8bf:2d23:7be9:25fb:adab:b6b5:', 'ERROR:Invalid ip address!'],
+  [':1020:', 'ERROR:Invalid ip address!'],
+  ['7759:f8bf:JJJJ:7be9:25fb:adab:b6b5:b7a9', 'ERROR:Invalid ip address!'],
+  ['7759:f8bf:4add:7be9:25fb:adab:b6b5:b7a9:11', 'ERROR:Invalid ip address!'],
 ];
 
 const allTests = [
