@@ -8,18 +8,18 @@ const COLORS = {
   green: '\x1b[32m',
 };
 
-const runTests = (testsList) => {
+const runTests = (testRun) => {
   const errorPrefix = 'ERROR:';
-  for (const test of testsList) {
+  for (const testSuit of testRun) {
     let failed = 0;
-    const testInfo = test[0];
+    const testInfo = testSuit[0];
     const { testName, context, fn } = testInfo;
     const fnHasOneArg = fn.length === 1;
-    const caseCount = test.length - 1;
+    const caseCount = testSuit.length - 1;
     console.log(`${testName} testing started!`);
 
     for (let i = 1; i <= caseCount; i++) {
-      const testCase = test[i];
+      const testCase = testSuit[i];
       const [input, excepted] = testCase;
       const testCaseName = `${testName} test #${i}`;
 
