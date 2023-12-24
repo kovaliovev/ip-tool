@@ -324,6 +324,24 @@ const getMaskFromPrefixTest = [
   [[[16], true], 'ERROR:Invalid prefix entered!'],
 ];
 
+const getRandomAddressTest = [
+  {
+    testName: 'Getting random ip address',
+    context: ipv4,
+    fn: ipv4.isValid,
+  },
+  ['fail', false],
+  [ipv4.getRandomAddress(), true],
+  [ipv4.getRandomAddress(), true],
+  [ipv4.getRandomAddress(), true],
+  [ipv4.getRandomAddress(), true],
+  [ipv4.getRandomAddress(), true],
+  [ipv4.getRandomAddress(), true],
+  [ipv4.getRandomAddress(), true],
+  [ipv4.getRandomAddress(), true],
+  [ipv4.getRandomAddress(), true],
+];
+
 const getNetworkAddressTest = [
   {
     testName: 'Getting ip network address',
@@ -620,6 +638,7 @@ const allTests = [
   getIpFromBinaryTest,
   convertSubnetMaskToPrefixTest,
   getMaskFromPrefixTest,
+  getRandomAddressTest,
   getNetworkAddressTest,
   ipInNetworkIncludingTest,
   getNetworkBroadcastAddressTest,
