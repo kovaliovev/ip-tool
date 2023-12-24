@@ -3,3 +3,4 @@ test/
 .github/
 .gitignore
 .eslintrc.json
+.idea/
