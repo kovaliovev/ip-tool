@@ -125,11 +125,30 @@ const convertIpToShortFormatTest = [
   ['7759:f8bf:4add:7be9:25fb:adab:b6b5:b7a9:11', 'ERROR:Invalid ip address!'],
 ];
 
+const getRandomAddressTest = [
+  {
+    testName: 'Getting random ip address',
+    context: ipv6,
+    fn: ipv6.isValid,
+  },
+  ['fail', false],
+  [ipv6.getRandomAddress(), true],
+  [ipv6.getRandomAddress(), true],
+  [ipv6.getRandomAddress(), true],
+  [ipv6.getRandomAddress(), true],
+  [ipv6.getRandomAddress(), true],
+  [ipv6.getRandomAddress(), true],
+  [ipv6.getRandomAddress(), true],
+  [ipv6.getRandomAddress(), true],
+  [ipv6.getRandomAddress(), true],
+];
+
 const allTests = [
   ipValidationTest,
   ipIsShortCheckingTest,
   convertIpToLongFormatTest,
   convertIpToShortFormatTest,
+  getRandomAddressTest,
 ];
 
 runTests(allTests);
