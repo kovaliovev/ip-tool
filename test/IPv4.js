@@ -324,6 +324,22 @@ const getMaskFromPrefixTest = [
   [[[16], true], 'ERROR:Invalid prefix entered!'],
 ];
 
+const getDomainNamesTest = [
+  {
+    testName: 'Getting domain names by ip address',
+    context: ipv4,
+    fn: ipv4.getDomainNames,
+  },
+  ['8.8.8.8', ['dns.google']],
+  ['54.163.76.76', ['ec2-54-163-76-76.compute-1.amazonaws.com']],
+  ['129.250.35.251', [ 'y.ns.gin.ntt.net' ]],
+  ['91.239.100.100', ['anycast.censurfridns.dk']],
+  ['216.146.36.36', ['rdns.dynect.net']],
+  ['37.235.1.177', ['resolver2.freedns.zone.powered.by.virtexxa.com']],
+  ['0.0.0.0', []],
+  ['fail', 'ERROR:Invalid ip address!'],
+];
+
 const getRandomAddressTest = [
   {
     testName: 'Getting random ip address',
@@ -638,6 +654,7 @@ const allTests = [
   getIpFromBinaryTest,
   convertSubnetMaskToPrefixTest,
   getMaskFromPrefixTest,
+  getDomainNamesTest,
   getRandomAddressTest,
   getNetworkAddressTest,
   ipInNetworkIncludingTest,
