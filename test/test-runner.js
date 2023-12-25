@@ -8,7 +8,7 @@ const COLORS = {
   green: '\x1b[32m',
 };
 
-const runTests = (testRun) => {
+const runTests = async (testRun) => {
   const errorPrefix = 'ERROR:';
   for (const testSuit of testRun) {
     let failed = 0;
@@ -24,9 +24,9 @@ const runTests = (testRun) => {
       const testCaseName = `${testName} test #${i}`;
 
       try {
-        const output = fnHasOneArg ?
+        const output = await (fnHasOneArg ?
           fn.call(context, input) :
-          fn.apply(context, input);
+          fn.apply(context, input));
         assert.deepStrictEqual(output, excepted, testCaseName);
       } catch (err) {
         const isExcepted =
