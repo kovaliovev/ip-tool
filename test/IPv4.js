@@ -1,9 +1,10 @@
 'use strict';
 
 const { IPv4 } = require('../lib/IPv4.js');
-const { runTests } = require('./test-runner.js');
+const { TestRunner } = require('./test-runner.js');
 
 const ipv4 = new IPv4();
+const testRunner = new TestRunner();
 
 const ipValidationTest = [
   {
@@ -684,4 +685,4 @@ const allTests = [
   ipNetworkSubnettingTest,
 ];
 
-runTests(allTests);
+testRunner.run(allTests);

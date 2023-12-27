@@ -1,9 +1,10 @@
 'use strict';
 
 const { IPv6 } = require('../lib/IPv6.js');
-const { runTests } = require('./test-runner.js');
+const { TestRunner } = require('./test-runner.js');
 
 const ipv6 = new IPv6();
+const testRunner = new TestRunner();
 
 const ipValidationTest = [
   {
@@ -151,4 +152,4 @@ const allTests = [
   getRandomAddressTest,
 ];
 
-runTests(allTests);
+testRunner.run(allTests);
