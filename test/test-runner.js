@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 class TestRunner {
   constructor() {
     this.logger = new Logger();
-     this.errorPrefix = 'ERROR:';
+    this.errPrefix = 'ERROR:';
   }
 
   async run(testRun) {
@@ -18,24 +18,33 @@ class TestRunner {
 
       for (let i = 1; i <= caseCount; i++) {
         const testCaseName = `${testName} test #${i}`;
-        const success = await this.runCase(fn, context, testSuit[i], testCaseName);
+        const success = await this.runCase(
+          fn,
+          context,
+          testSuit[i],
+          testCaseName,
+        );
         if (!success) failed++;
       }
       this.logger.result(caseCount, failed);
     }
   }
 
-  async runCase(fn, context, testCase, testCaseName){
+  async runCase(fn, context, testCase, testCaseName) {
     const [input, excepted] = testCase;
-
+    const fnHasOneArg = fn.length === 1;
     try {
-      const output = await (fn.length === 1 ?
-        fn.call(context, input) :
-        fn.apply(context, input));
+      const output = await (fnHasOneArg
+        ? fn.call(context, input)
+        : fn.apply(context, input));
       assert.deepStrictEqual(output, excepted, testCaseName);
     } catch (err) {
-      const isExcepted = typeof excepted === 'string' && excepted.startsWith(this.errorPrefix);
-      if (!isExcepted || err.message !== excepted.slice(this.errorPrefix.length)) {
+      const isExcepted =
+        typeof excepted === 'string' && excepted.startsWith(this.errPrefix);
+      if (
+        !isExcepted ||
+        err.message !== excepted.slice(this.errPrefix.length)
+      ) {
         this.logger.fail(testCaseName, err);
         return false;
       }
@@ -53,7 +62,7 @@ class Logger {
     };
   }
 
-  start(testName){
+  start(testName) {
     console.log(`${testName} testing started!`);
   }
 
@@ -62,13 +71,11 @@ class Logger {
     console.error(err);
   }
 
-  result(testCount, failed){
-    const passed = testCount - failed;
-    const color = passed === testCount ?
-      this.colors['green'] :
-      this.colors['red'];
+  result(all, failed) {
+    const passed = all - failed;
+    const color = this.colors[passed === all ? 'green' : 'red'];
     const resetColor = this.colors['default'];
-    console.log(`${color} Successfully passed: ${passed}/${testCount}${resetColor}`);
+    console.log(`${color} Successfully passed: ${passed}/${all}${resetColor}`);
     console.log('-----------------------------');
   }
 }
