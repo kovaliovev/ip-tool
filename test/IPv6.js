@@ -139,6 +139,19 @@ const getDomainNamesTest = [
   ['::', []],
 ];
 
+const getIpFromDomainNameTest = [
+  {
+    testName: 'Getting array of ip addresses from domain name',
+    context: ipv6,
+    fn: ipv6.fromDomainName,
+  },
+  ['www.sprint.net', ['2a02:e980:25::ce']],
+  ['cisco.com', ['2001:420:1101:1::185']],
+  ['facebook.com', ['2a03:2880:f165:81:face:b00c:0:25de']],
+  ['dns.google', ['2001:4860:4860::8888', '2001:4860:4860::8844']],
+  [225, 'ERROR:Invalid input type!'],
+];
+
 const getRandomAddressTest = [
   {
     testName: 'Getting random ip address',
@@ -163,6 +176,7 @@ const allTests = [
   convertIpToLongFormatTest,
   convertIpToShortFormatTest,
   getDomainNamesTest,
+  getIpFromDomainNameTest,
   getRandomAddressTest,
 ];
 
