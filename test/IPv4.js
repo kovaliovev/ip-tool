@@ -343,7 +343,7 @@ const getDomainNamesTest = [
 
 const getIpFromDomainNameTest = [
   {
-    testName: 'Getting ip address from domain name',
+    testName: 'Getting array of ip addresses from domain name',
     context: ipv4,
     fn: ipv4.fromDomainName,
   },
