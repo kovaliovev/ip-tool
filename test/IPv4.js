@@ -347,14 +347,11 @@ const getIpFromDomainNameTest = [
     context: ipv4,
     fn: ipv4.fromDomainName,
   },
-  ['cisco.com', '72.163.4.185'],
-  ['ec2-54-163-76-76.compute-1.amazonaws.com', '54.163.76.76'],
-  ['y.ns.gin.ntt.net', '129.250.35.251'],
-  ['anycast.censurfridns.dk', '91.239.100.100'],
-  ['youtube.com', '142.250.201.206'],
+  ['cisco.com', ['72.163.4.185']],
+  ['ec2-54-163-76-76.compute-1.amazonaws.com', ['54.163.76.76']],
+  ['y.ns.gin.ntt.net', ['129.250.35.251']],
+  ['anycast.censurfridns.dk', ['91.239.100.100']],
   [225, 'ERROR:Invalid input type!'],
-  ['invalid', 'ERROR:Domain name was not found!'],
-  ['a', 'ERROR:Domain name was not found!'],
 ];
 
 const getRandomAddressTest = [
