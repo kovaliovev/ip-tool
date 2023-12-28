@@ -126,6 +126,19 @@ const convertIpToShortFormatTest = [
   ['7759:f8bf:4add:7be9:25fb:adab:b6b5:b7a9:11', 'ERROR:Invalid ip address!'],
 ];
 
+const getDomainNamesTest = [
+  {
+    testName: 'Getting domain names by ip address',
+    context: ipv6,
+    fn: ipv6.getDomainNames,
+  },
+  ['8.8.8.8', 'ERROR:Invalid ip address!'],
+  ['fail', 'ERROR:Invalid ip address!'],
+  ['2600::', ['www.sprint.net']],
+  ['2001:4860:4860::8888', ['dns.google']],
+  ['::', []],
+];
+
 const getRandomAddressTest = [
   {
     testName: 'Getting random ip address',
@@ -149,6 +162,7 @@ const allTests = [
   ipIsShortCheckingTest,
   convertIpToLongFormatTest,
   convertIpToShortFormatTest,
+  getDomainNamesTest,
   getRandomAddressTest,
 ];
 
