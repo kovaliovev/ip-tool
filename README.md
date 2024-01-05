@@ -18,10 +18,12 @@
 - converting
 - network info getting
 - subnetting
+- DNS using
 
 ## IPv6 functions
 - validation
 - converting
+- DNS using
 
 _In development..._
 
@@ -84,6 +86,8 @@ ipv4.networkSubnet('12.32.0.0/20', [500, 254, 255, 128, 100, 50, 39, 15, 14]);
 //   '12.32.7.0/27': 32,
 //   '12.32.7.32/28': 16
 // }
+
+await ipv4.fromDomainName('cisco.com'); // ['72.163.4.185']
 ```
 # Documentation
 **All library documentation in** [**github-wiki**](https://github.com/kovaliovev/ip-tool/wiki)**!**
