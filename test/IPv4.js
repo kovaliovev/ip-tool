@@ -390,6 +390,30 @@ const getNetworkAddressTest = [
   [['23.2.20.23', '240.0.0.0'], '16.0.0.0/4'],
 ];
 
+const getAllNetworkAddressesTest = [
+  {
+    testName: 'Getting all ip addresses in ip network',
+    context: ipv4,
+    fn: ipv4.getAllNetworkAddresses,
+  },
+  ['10.90.50.0/28',
+    [
+      '10.90.50.0',  '10.90.50.1',
+      '10.90.50.2',  '10.90.50.3',
+      '10.90.50.4',  '10.90.50.5',
+      '10.90.50.6',  '10.90.50.7',
+      '10.90.50.8',  '10.90.50.9',
+      '10.90.50.10', '10.90.50.11',
+      '10.90.50.12', '10.90.50.13',
+      '10.90.50.14', '10.90.50.15',
+    ]
+  ],
+  ['127.0.0.0/30', [ '127.0.0.0', '127.0.0.1', '127.0.0.2', '127.0.0.3' ]],
+  ['10.90.50.0/32', [ '10.90.50.0' ]],
+  ['invalid', 'ERROR:Invalid ip network!'],
+  ['10.90.50.16/24', 'ERROR:Invalid ip network!']
+];
+
 const getNetworkBroadcastAddressTest = [
   {
     testName: 'Getting network broadcast address',
@@ -672,6 +696,7 @@ const allTests = [
   getIpFromDomainNameTest,
   getRandomAddressTest,
   getNetworkAddressTest,
+  getAllNetworkAddressesTest,
   ipInNetworkIncludingTest,
   getNetworkBroadcastAddressTest,
   getClassTest,
