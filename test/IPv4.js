@@ -354,6 +354,27 @@ const getIpFromDomainNameTest = [
   [225, 'ERROR:Invalid input type!'],
 ];
 
+const getAddressesDistanceTest = [
+  {
+    testName: 'Getting the number of ip addresses between two given ip addresses',
+    context: ipv4,
+    fn: ipv4.getAdressesDistance,
+  },
+  ['192.168.1.1', '192.168.1.2', 1],
+  ['10.0.0.0', '10.0.0.255', 255],
+  ['172.16.0.0', '172.16.1.0', 256],
+  ['192.168.1.1', '192.168.1.1', 0],
+  ['0.0.0.0', '255.255.255.255', 4294967295],
+  ['100.66.66.66', '100.66.66.68', 2],
+  ['198.18.0.0', '198.19.255.255', 131071],
+  ['192.0.2.0', '198.51.100.0', 43438080],
+  ['10.0.0.1', '10.0.1.0', 255],
+  ['10.0.0.1', 'error-string', 'ERROR:Invalid ip address!'],
+  ['error-string', '10.0.0.1', 'ERROR:Invalid ip address!'],
+  ['10.0.0.1', '10.0.0.256', 'ERROR:Invalid ip address!'],
+  ['256.0.0.0', '10.0.0.1', 'ERROR:Invalid ip address!'],
+];
+
 const getRandomAddressTest = [
   {
     testName: 'Getting random ip address',
@@ -694,6 +715,7 @@ const allTests = [
   getMaskFromPrefixTest,
   getDomainNamesTest,
   getIpFromDomainNameTest,
+	getAddressesDistanceTest,
   getRandomAddressTest,
   getNetworkAddressTest,
   getAllNetworkAddressesTest,
