@@ -358,7 +358,7 @@ const getAddressesDistanceTest = [
   {
     testName: 'Getting the number of ip addresses between two given ip addresses',
     context: ipv4,
-    fn: ipv4.getAdressesDistance,
+    fn: ipv4.getAddressesDistance,
   },
   ['192.168.1.1', '192.168.1.2', 1],
   ['10.0.0.0', '10.0.0.255', 255],
