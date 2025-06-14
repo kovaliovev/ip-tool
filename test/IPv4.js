@@ -354,6 +354,27 @@ const getIpFromDomainNameTest = [
   [225, 'ERROR:Invalid input type!'],
 ];
 
+const getAddressesDistanceTest = [
+  {
+    testName: 'Getting the number of ip addresses between two given ip addresses',
+    context: ipv4,
+    fn: ipv4.getAddressesDistance,
+  },
+  [['192.168.1.1', '192.168.1.2'], 1],
+  [['10.0.0.0', '10.0.0.255'], 255],
+  [['172.16.0.0', '172.16.1.0'], 256],
+  [['192.168.1.1', '192.168.1.1'], 0],
+  [['0.0.0.0', '255.255.255.255'], 4294967295],
+  [['100.66.66.66', '100.66.66.68'], 2],
+  [['198.18.0.0', '198.19.255.255'], 131071],
+  [['192.0.2.0', '198.51.100.0'], 104030720],
+  [['10.0.0.1', '10.0.1.0'], 255],
+  [['10.0.0.1', 'error-string'], 'ERROR:Invalid ip address!'],
+  [['error-string', '10.0.0.1'], 'ERROR:Invalid ip address!'],
+  [['10.0.0.1', '10.0.0.256'], 'ERROR:Invalid ip address!'],
+  [['256.0.0.0', '10.0.0.1'], 'ERROR:Invalid ip address!'],
+];
+
 const getRandomAddressTest = [
   {
     testName: 'Getting random ip address',
@@ -388,6 +409,30 @@ const getNetworkAddressTest = [
   [[255, '255.255.128.0'], 'ERROR:Invalid ip address!'],
   [['255.200.100.10', true], 'ERROR:Invalid subnet mask!'],
   [['23.2.20.23', '240.0.0.0'], '16.0.0.0/4'],
+];
+
+const getAllNetworkAddressesTest = [
+  {
+    testName: 'Getting all ip addresses in ip network',
+    context: ipv4,
+    fn: ipv4.getAllNetworkAddresses,
+  },
+  ['10.90.50.0/28',
+    [
+      '10.90.50.0',  '10.90.50.1',
+      '10.90.50.2',  '10.90.50.3',
+      '10.90.50.4',  '10.90.50.5',
+      '10.90.50.6',  '10.90.50.7',
+      '10.90.50.8',  '10.90.50.9',
+      '10.90.50.10', '10.90.50.11',
+      '10.90.50.12', '10.90.50.13',
+      '10.90.50.14', '10.90.50.15',
+    ]
+  ],
+  ['127.0.0.0/30', [ '127.0.0.0', '127.0.0.1', '127.0.0.2', '127.0.0.3' ]],
+  ['10.90.50.0/32', [ '10.90.50.0' ]],
+  ['invalid', 'ERROR:Invalid ip network!'],
+  ['10.90.50.16/24', 'ERROR:Invalid ip network!']
 ];
 
 const getNetworkBroadcastAddressTest = [
@@ -670,8 +715,10 @@ const allTests = [
   getMaskFromPrefixTest,
   getDomainNamesTest,
   getIpFromDomainNameTest,
+	getAddressesDistanceTest,
   getRandomAddressTest,
   getNetworkAddressTest,
+  getAllNetworkAddressesTest,
   ipInNetworkIncludingTest,
   getNetworkBroadcastAddressTest,
   getClassTest,
