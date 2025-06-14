@@ -5,3 +5,4 @@ test/
 .eslintrc.json
 .idea/
 .prettier*
+patterns.md
